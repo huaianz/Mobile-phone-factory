@@ -1,0 +1,342 @@
+[
+  {
+    "chip_model": "骁龙8 Gen 3 (Snapdragon 8 Gen 3)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "旗舰芯片 (Flagship)",
+    "release_date": "2023年10月24日",
+    "process_tech": "4nm N4P (台积电第四代4nm)",
+    "transistor_count": "193亿个",
+    "price_usd": 120,
+    "adopted_models": "小米14系列、三星Galaxy S24系列、一加12、魅族21 Pro、红魔9 Pro"
+  },
+  {
+    "chip_model": "天玑9300 (Dimensity 9300)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "旗舰芯片 (Flagship)",
+    "release_date": "2023年11月6日",
+    "process_tech": "4nm N4P (台积电第四代4nm)",
+    "transistor_count": "227亿个",
+    "price_usd": 110,
+    "adopted_models": "vivo X100系列、OPPO Find X7系列、小米14 Ultra、iQOO 12系列"
+  },
+  {
+    "chip_model": "苹果A17 Pro (Apple A17 Pro)",
+    "manufacturer": "苹果公司 (Apple Inc.)",
+    "category": "旗舰芯片 (Flagship)",
+    "release_date": "2023年9月12日",
+    "process_tech": "3nm N3B (台积电第一代3nm)",
+    "transistor_count": "190亿个",
+    "price_usd": 130,
+    "adopted_models": "iPhone 15 Pro、iPhone 15 Pro Max"
+  },
+  {
+    "chip_model": "骁龙8 Gen 2 (Snapdragon 8 Gen 2)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2022年11月15日",
+    "process_tech": "4nm N4 (台积电第二代4nm)",
+    "transistor_count": "165亿个",
+    "price_usd": 85,
+    "adopted_models": "三星Galaxy S23系列、小米13系列、一加11、iQOO 11、魅族20 Pro"
+  },
+  {
+    "chip_model": "天玑9200 (Dimensity 9200)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2022年11月8日",
+    "process_tech": "4nm N4 (台积电第二代4nm)",
+    "transistor_count": "170亿个",
+    "price_usd": 75,
+    "adopted_models": "vivo X90系列、OPPO Find X6系列、小米13 Lite"
+  },
+  {
+    "chip_model": "Google Tensor G3",
+    "manufacturer": "谷歌 (Google LLC)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2023年10月4日",
+    "process_tech": "4nm LPP (三星第二代4nm)",
+    "transistor_count": "155亿个",
+    "price_usd": 95,
+    "adopted_models": "Google Pixel 8系列、Google Pixel 8 Pro"
+  },
+  {
+    "chip_model": "骁龙7+ Gen 3 (Snapdragon 7+ Gen 3)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2023年3月17日",
+    "process_tech": "4nm (台积电4nm)",
+    "transistor_count": "120亿个",
+    "price_usd": 65,
+    "adopted_models": "红米Note 13 Pro+、真我GT Neo6、iQOO Z8、一加Nord 4"
+  },
+  {
+    "chip_model": "天玑8300 (Dimensity 8300)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2023年11月21日",
+    "process_tech": "4nm (台积电4nm)",
+    "transistor_count": "110亿个",
+    "price_usd": 60,
+    "adopted_models": "红米K70E、真我GT Neo5 SE、iQOO Z8x"
+  },
+  {
+    "chip_model": "骁龙6 Gen 1 (Snapdragon 6 Gen 1)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "入门芯片 (Entry-Level)",
+    "release_date": "2022年9月6日",
+    "process_tech": "4nm (三星4nm)",
+    "transistor_count": "80亿个",
+    "price_usd": 35,
+    "adopted_models": "红米Note 12、真我10 Pro+、vivo Y78、OPPO A98"
+  },
+  {
+    "chip_model": "天玑6100 (Dimensity 6100)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "入门芯片 (Entry-Level)",
+    "release_date": "2023年7月11日",
+    "process_tech": "6nm (台积电6nm)",
+    "transistor_count": "60亿个",
+    "price_usd": 25,
+    "adopted_models": "红米12C、真我C55、vivo Y36、OPPO A58"
+  },
+  {
+    "chip_model": "骁龙865 (Snapdragon 865)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "历史芯片 (Legacy)",
+    "release_date": "2019年12月4日",
+    "process_tech": "7nm N7P (台积电第二代7nm)",
+    "transistor_count": "103亿个",
+    "price_usd": 25,
+    "adopted_models": "小米10系列、三星Galaxy S20系列、一加8系列、OPPO Find X2系列"
+  },
+  {
+    "chip_model": "麒麟9000 (Kirin 9000)",
+    "manufacturer": "海思半导体 (HiSilicon)",
+    "category": "特殊芯片 (Special)",
+    "release_date": "2020年10月22日",
+    "process_tech": "5nm N5 (台积电第一代5nm)",
+    "transistor_count": "153亿个",
+    "price_usd": 80,
+    "adopted_models": "华为Mate 40系列、华为P50系列(部分)"
+  },
+  {
+    "chip_model": "Exynos 2200",
+    "manufacturer": "三星电子 (Samsung Electronics)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2022年1月18日",
+    "process_tech": "4nm LPE (三星第一代4nm)",
+    "transistor_count": "未公开",
+    "price_usd": 70,
+    "adopted_models": "三星Galaxy S22系列(部分市场)、三星Galaxy S23 FE"
+  },
+  {
+    "chip_model": "骁龙888 (Snapdragon 888)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2020年12月1日",
+    "process_tech": "5nm LPE (三星第一代5nm)",
+    "transistor_count": "未公开",
+    "price_usd": 60,
+    "adopted_models": "小米11系列、一加9系列、OPPO Find X3系列、vivo X70 Pro+"
+  },
+  {
+    "chip_model": "天玑9000 (Dimensity 9000)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2021年11月19日",
+    "process_tech": "4nm N4 (台积电第一代4nm)",
+    "transistor_count": "未公开",
+    "price_usd": 70,
+    "adopted_models": "OPPO Find X5 Pro天玑版、vivo X80 Pro天玑版、小米12 Pro天玑版"
+  },
+  {
+    "chip_model": "苹果A15 Bionic (Apple A15 Bionic)",
+    "manufacturer": "苹果公司 (Apple Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2021年9月14日",
+    "process_tech": "5nm N5P (台积电第二代5nm)",
+    "transistor_count": "150亿个",
+    "price_usd": 90,
+    "adopted_models": "iPhone 13系列、iPhone 14、iPhone 14 Plus、iPhone SE (第三代)"
+  },
+  {
+    "chip_model": "骁龙870 (Snapdragon 870)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2021年1月19日",
+    "process_tech": "7nm N7P (台积电第二代7nm)",
+    "transistor_count": "未公开",
+    "price_usd": 35,
+    "adopted_models": "小米10S、一加9R、OPPO Find X3 Neo、vivo S10 Pro"
+  },
+  {
+    "chip_model": "天玑8100 (Dimensity 8100)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2022年3月1日",
+    "process_tech": "5nm N5 (台积电第一代5nm)",
+    "transistor_count": "未公开",
+    "price_usd": 45,
+    "adopted_models": "红米K50、一加Ace、真我GT Neo3、OPPO Reno8 Pro+"
+  },
+  {
+    "chip_model": "Google Tensor G2",
+    "manufacturer": "谷歌 (Google LLC)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2022年10月6日",
+    "process_tech": "5nm LPE (三星第一代5nm)",
+    "transistor_count": "未公开",
+    "price_usd": 75,
+    "adopted_models": "Google Pixel 7系列、Google Pixel 7a"
+  },
+  {
+    "chip_model": "紫光展锐T760 (Unisoc T760)",
+    "manufacturer": "紫光展锐 (Unisoc)",
+    "category": "入门芯片 (Entry-Level)",
+    "release_date": "2022年3月15日",
+    "process_tech": "6nm EUV (台积电6nm)",
+    "transistor_count": "未公开",
+    "price_usd": 20,
+    "adopted_models": "传音Tecno系列、海信手机、中兴低端机型"
+  },
+  {
+    "chip_model": "苹果A14 Bionic (Apple A14 Bionic)",
+    "manufacturer": "苹果公司 (Apple Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2020年9月15日",
+    "process_tech": "5nm N5 (台积电第一代5nm)",
+    "transistor_count": "118亿个",
+    "price_usd": 70,
+    "adopted_models": "iPhone 12系列、iPad Air (第四代)"
+  },
+  {
+    "chip_model": "骁龙855 (Snapdragon 855)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "历史芯片 (Legacy)",
+    "release_date": "2018年12月5日",
+    "process_tech": "7nm N7 (台积电第一代7nm)",
+    "transistor_count": "67亿个",
+    "price_usd": 20,
+    "adopted_models": "小米9、三星Galaxy S10系列、一加7 Pro、OPPO Reno 10倍变焦版"
+  },
+  {
+    "chip_model": "麒麟990 5G (Kirin 990 5G)",
+    "manufacturer": "海思半导体 (HiSilicon)",
+    "category": "历史芯片 (Legacy)",
+    "release_date": "2019年9月6日",
+    "process_tech": "7nm+ EUV (台积电第二代7nm)",
+    "transistor_count": "103亿个",
+    "price_usd": 40,
+    "adopted_models": "华为Mate 30系列、华为P40系列、荣耀V30系列"
+  },
+  {
+    "chip_model": "Exynos 2100",
+    "manufacturer": "三星电子 (Samsung Electronics)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2021年1月12日",
+    "process_tech": "5nm LPE (三星第一代5nm)",
+    "transistor_count": "未公开",
+    "price_usd": 55,
+    "adopted_models": "三星Galaxy S21系列(部分市场)、三星Galaxy S21 FE"
+  },
+  {
+    "chip_model": "骁龙778G (Snapdragon 778G)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2021年5月18日",
+    "process_tech": "6nm N6 (台积电6nm)",
+    "transistor_count": "未公开",
+    "price_usd": 40,
+    "adopted_models": "荣耀50系列、小米11 Lite 5G NE、三星Galaxy A52s 5G、iQOO Z5"
+  },
+  {
+    "chip_model": "天玑7200 (Dimensity 7200)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2023年2月16日",
+    "process_tech": "4nm (台积电4nm)",
+    "transistor_count": "未公开",
+    "price_usd": 50,
+    "adopted_models": "真我11 Pro+、vivo S17e、OPPO Reno10"
+  },
+  {
+    "chip_model": "苹果A13 Bionic (Apple A13 Bionic)",
+    "manufacturer": "苹果公司 (Apple Inc.)",
+    "category": "历史芯片 (Legacy)",
+    "release_date": "2019年9月10日",
+    "process_tech": "7nm N7P (台积电第二代7nm)",
+    "transistor_count": "85亿个",
+    "price_usd": 45,
+    "adopted_models": "iPhone 11系列、iPhone SE (第二代)"
+  },
+  {
+    "chip_model": "骁龙480 (Snapdragon 480)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "入门芯片 (Entry-Level)",
+    "release_date": "2021年1月4日",
+    "process_tech": "8nm LPP (三星8nm)",
+    "transistor_count": "未公开",
+    "price_usd": 15,
+    "adopted_models": "诺基亚G50、OPPO A74 5G、vivo Y31s、小米Redmi Note 10 5G"
+  },
+  {
+    "chip_model": "天玑700 (Dimensity 700)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "入门芯片 (Entry-Level)",
+    "release_date": "2020年11月11日",
+    "process_tech": "7nm (台积电7nm)",
+    "transistor_count": "未公开",
+    "price_usd": 18,
+    "adopted_models": "红米Note 10 5G、真我V13、OPPO A55 5G、vivo Y52s"
+  },
+  {
+    "chip_model": "Google Tensor G1",
+    "manufacturer": "谷歌 (Google LLC)",
+    "category": "中端芯片 (Mid-Range)",
+    "release_date": "2021年10月19日",
+    "process_tech": "5nm LPE (三星第一代5nm)",
+    "transistor_count": "未公开",
+    "price_usd": 65,
+    "adopted_models": "Google Pixel 6系列、Google Pixel 6a"
+  },
+  {
+    "chip_model": "骁龙8s Gen 3 (Snapdragon 8s Gen 3)",
+    "manufacturer": "高通 (Qualcomm Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2024年3月18日",
+    "process_tech": "4nm (台积电4nm)",
+    "transistor_count": "未公开",
+    "price_usd": 95,
+    "adopted_models": "小米Civi 4 Pro、真我GT Neo6、一加Ace 3 Pro"
+  },
+  {
+    "chip_model": "天玑9200+ (Dimensity 9200+)",
+    "manufacturer": "联发科 (MediaTek Inc.)",
+    "category": "高端芯片 (High-End)",
+    "release_date": "2023年5月10日",
+    "process_tech": "4nm N4 (台积电第二代4nm)",
+    "transistor_count": "未公开",
+    "price_usd": 78,
+    "adopted_models": "iQOO Neo8 Pro、红魔8S Pro、魅族20 Infinity"
+  },
+  {
+    "chip_model": "苹果M1 (Apple M1)",
+    "manufacturer": "苹果公司 (Apple Inc.)",
+    "category": "特殊芯片 (Special)",
+    "release_date": "2020年11月10日",
+    "process_tech": "5nm N5 (台积电第一代5nm)",
+    "transistor_count": "160亿个",
+    "price_usd": 100,
+    "adopted_models": "MacBook Air (M1)、MacBook Pro 13英寸 (M1)、iPad Pro (2021)、Mac mini (M1)"
+  },
+  {
+    "chip_model": "麒麟9000S (Kirin 9000S)",
+    "manufacturer": "海思半导体 (HiSilicon)",
+    "category": "特殊芯片 (Special)",
+    "release_date": "2023年8月29日",
+    "process_tech": "7nm (中芯国际N+2)",
+    "transistor_count": "未公开",
+    "price_usd": 85,
+    "adopted_models": "华为Mate 60系列、华为Mate X5"
+  }
+]

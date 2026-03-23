@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5983e0daf59a13e4c9b464840c83fc0f, type: 3}
+  m_Name: OrderList_SO
+  m_EditorClassIdentifier: 
+  activeOrders: []
+  wonOrders:
+  - orderID: 14640
+    customerName: "\u653F\u5E9C\u91C7\u8D2D"
+    phoneModelID: 3
+    quantity: 544
+    maxPrice: 1616.1786
+    currentBidPrice: 666
+    daysRemaining: 0
+    isActive: 0
+    isWon: 1
+    deliveryDeadline: 44.78385
+  completedOrders: []

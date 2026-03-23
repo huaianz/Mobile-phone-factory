@@ -1,0 +1,100 @@
+{
+    "ChipList": [
+        {
+            "ID": 1,
+            "number": 35,
+            "chip_model": "骁龙8 Gen 3",
+            "manufacturer": "高通",
+            "category": "旗舰芯片",
+            "release_date": "2023年10月24日",
+            "process_tech": "4nm N4P",
+            "transistor_count": "193亿个",
+            "price_usd": 120.0,
+            "adopted_models": "小米14 Pro, 一加12, iQOO 12"
+        },
+        {
+            "ID": 2,
+            "number": 20,
+            "chip_model": "天玑9300",
+            "manufacturer": "联发科",
+            "category": "旗舰芯片",
+            "release_date": "2023年11月6日",
+            "process_tech": "4nm N4P",
+            "transistor_count": "227亿个",
+            "price_usd": 110.0,
+            "adopted_models": "vivo X100 Pro"
+        },
+        {
+            "ID": 3,
+            "number": 15,
+            "chip_model": "苹果A17 Pro",
+            "manufacturer": "苹果",
+            "category": "旗舰芯片",
+            "release_date": "2023年9月12日",
+            "process_tech": "3nm N3B",
+            "transistor_count": "190亿个",
+            "price_usd": 130.0,
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "ID": 4,
+            "number": 40,
+            "chip_model": "骁龙8 Gen 2",
+            "manufacturer": "高通",
+            "category": "高端芯片",
+            "release_date": "2022年11月15日",
+            "process_tech": "4nm N4",
+            "transistor_count": "165亿个",
+            "price_usd": 85.0,
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "ID": 5,
+            "number": 25,
+            "chip_model": "天玑9200",
+            "manufacturer": "联发科",
+            "category": "高端芯片",
+            "release_date": "2022年11月8日",
+            "process_tech": "4nm N4",
+            "transistor_count": "170亿个",
+            "price_usd": 75.0,
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "ID": 6,
+            "number": 30,
+            "chip_model": "骁龙8s Gen 3",
+            "manufacturer": "高通",
+            "category": "高端芯片",
+            "release_date": "2024年3月18日",
+            "process_tech": "4nm",
+            "transistor_count": "信息未提供",
+            "price_usd": 95.0,
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "ID": 7,
+            "number": 12,
+            "chip_model": "麒麟9000",
+            "manufacturer": "海思",
+            "category": "特殊芯片",
+            "release_date": "2020年10月22日",
+            "process_tech": "5nm N5",
+            "transistor_count": "153亿个",
+            "price_usd": 80.0,
+            "adopted_models": "华为Mate 40 Pro+"
+        },
+        {
+            "ID": 8,
+            "number": 50,
+            "chip_model": "骁龙865",
+            "manufacturer": "高通",
+            "category": "旧款芯片",
+            "release_date": "2019年12月4日",
+            "process_tech": "7nm N7P",
+            "transistor_count": "103亿个",
+            "price_usd": 25.0,
+            "adopted_models": "小米10 Pro"
+        }
+    ]
+}

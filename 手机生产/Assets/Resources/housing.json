@@ -1,0 +1,49 @@
+{
+    "hoList": [
+        {
+            "ID": 1,
+            "number": 60,
+            "part_model": "铝合金中框 (6系)",
+            "manufacturer": "长盈精密",
+            "material_type": "航空铝合金",
+            "price": "55",
+            "adopted_models": "小米14 Pro, iQOO 12, 三星Galaxy S23+, 一加12, vivo X100 Pro, vivo X90 Pro+, 小米10 Pro"
+        },
+        {
+            "ID": 2,
+            "number": 25,
+            "part_model": "不锈钢中框 (316L)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "手术级不锈钢",
+            "price": "100",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "ID": 3,
+            "number": 45,
+            "part_model": "塑料中框+AG玻璃后盖",
+            "manufacturer": "通达集团",
+            "material_type": "PC/ABS塑料与玻璃复合材料",
+            "price": "32",
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "ID": 4,
+            "number": 10,
+            "part_model": "素皮后盖 (环保定制)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "环保素皮",
+            "price": "40",
+            "adopted_models": "华为Mate 40 Pro+"
+        },
+        {
+            "ID": 5,
+            "number": 15,
+            "part_model": "钛合金中框 (Grade 5)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "钛合金",
+            "price": "220",
+            "adopted_models": "iPhone 15 Pro"
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "baList": [
+        {
+            "ID": 1,
+            "number": 15,
+            "battery_model": "BM5X",
+            "manufacturer": "宁德时代 / 欣旺达",
+            "capacity": "5000 mAh",
+            "price": "85",
+            "adopted_models": "小米14 Pro"
+        },
+        {
+            "ID": 2,
+            "number": 12,
+            "battery_model": "SMP-AB78",
+            "manufacturer": "三星SDI / ATL",
+            "capacity": "4500 mAh",
+            "price": "90",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "ID": 3,
+            "number": 20,
+            "battery_model": "BLP833",
+            "manufacturer": "宁德时代 / 欣旺达",
+            "capacity": "4310 mAh",
+            "price": "65",
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "ID": 4,
+            "number": 18,
+            "battery_model": "WLD-B58",
+            "manufacturer": "比亚迪",
+            "capacity": "5100 mAh",
+            "price": "95",
+            "adopted_models": "一加12"
+        },
+        {
+            "ID": 5,
+            "number": 16,
+            "battery_model": "NCM-AP99",
+            "manufacturer": "宁德时代 / 新能源科技",
+            "capacity": "5000 mAh",
+            "price": "92",
+            "adopted_models": "vivo X100 Pro"
+        },
+        {
+            "ID": 6,
+            "number": 14,
+            "battery_model": "NCM-AK88",
+            "manufacturer": "新能源科技",
+            "capacity": "4800 mAh",
+            "price": "78",
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "ID": 7,
+            "number": 22,
+            "battery_model": "WLD-B55",
+            "manufacturer": "比亚迪 / 德赛电池",
+            "capacity": "5000 mAh",
+            "price": "70",
+            "adopted_models": "iQOO 12"
+        },
+        {
+            "ID": 8,
+            "number": 10,
+            "battery_model": "A2780",
+            "manufacturer": "苹果定制 (德赛/欣旺达制造)",
+            "capacity": "4500 mAh",
+            "price": "120",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "ID": 9,
+            "number": 8,
+            "battery_model": "HB-5060",
+            "manufacturer": "欣旺达",
+            "capacity": "5000 mAh",
+            "price": "110",
+            "adopted_models": "华为Mate 40 Pro+"
+        },
+        {
+            "ID": 10,
+            "number": 25,
+            "battery_model": "BM4M",
+            "manufacturer": "比亚迪 / 德赛电池",
+            "capacity": "5000 mAh",
+            "price": "85",
+            "adopted_models": "小米10 Pro"
+        }
+    ]
+}

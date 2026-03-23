@@ -1,0 +1,794 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb46faf1cbbf1c4a8a98d9d50784bd0, type: 3}
+  m_Name: Inventory_SO
+  m_EditorClassIdentifier: 
+  Bag:
+  - ID: 1
+    money: 87885110
+    phones:
+    - ID: 1
+      Name: "\u5C0F\u7C7314 Pro"
+      number: 0
+    - ID: 2
+      Name: "\u4E09\u661FGalaxy S23+"
+      number: 0
+    - ID: 3
+      Name: "\u771F\u6211GT Neo6"
+      number: 456
+    - ID: 4
+      Name: "\u4E00\u52A012"
+      number: 0
+    - ID: 5
+      Name: vivo X100 Pro
+      number: 0
+    - ID: 6
+      Name: vivo X90 Pro+
+      number: 0
+    - ID: 7
+      Name: iQOO 12
+      number: 0
+    - ID: 8
+      Name: iPhone 15 Pro
+      number: 0
+    - ID: 9
+      Name: "\u534E\u4E3AMate 40 Pro+"
+      number: 0
+    - ID: 10
+      Name: "\u5C0F\u7C7310 Pro"
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    Chip:
+    - ID: 0
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      chip_model: "\u9A81\u9F998 Gen 3"
+      manufacturer: 120
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 100
+    - ID: 2
+      chip_model: 0
+      manufacturer: 0
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 90
+    - ID: 3
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 10
+    - ID: 4
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 10
+    - ID: 0
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 0
+    - ID: 6
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 96900
+    - ID: 0
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 0
+    - ID: 8
+      chip_model: 
+      manufacturer: 
+      category: 
+      release_date: 
+      process_tech: 
+      transistor_count: 
+      price_usd: 0
+      adopted_models: 
+      number: 10
+    Displayscreen:
+    - ID: 0
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 25
+    - ID: 2
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 3
+    - ID: 3
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 5900
+    - ID: 0
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 5
+      display_model: 
+      manufacturer: 
+      resolution: 
+      refresh: 
+      price: 0
+      adopted_models: 
+      number: 60
+    Memory:
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 100
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 5
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 96900
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      memory_model: 
+      manufacturer: 
+      type: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    Camera:
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 5
+    - ID: 2
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 996900
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    - ID: 5
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 3
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      camera_model: 
+      manufacturer: 
+      type: 
+      main_specs: 
+      unit_price: 0
+      adopted_models: 
+      number: 0
+    Battery:
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 8
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 3
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 5900
+    - ID: 4
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 100
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      battery_model: 
+      manufacturer: 
+      capacity: 
+      price: 0
+      adopted_models: 
+      number: 0
+    Housing:
+    - ID: 0
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 1
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 100
+    - ID: 2
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 10
+    - ID: 3
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 5900
+    - ID: 0
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 0
+    - ID: 0
+      part_model: 
+      manufacturer: 
+      material_type: 
+      price: 0
+      adopted_models: 
+      number: 0
+    Orders:
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 0
+      customerName: 
+      phoneModelID: 0
+      quantity: 0
+      maxPrice: 0
+      currentBidPrice: 0
+      daysRemaining: 0
+      isActive: 0
+      isWon: 0
+      deliveryDeadline: 0
+    - orderID: 83951
+      customerName: "\u56FD\u7F8E\u7535\u5668"
+      phoneModelID: 3
+      quantity: 722
+      maxPrice: 1565.2482
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 82.874565
+    - orderID: 83951
+      customerName: "\u56FD\u7F8E\u7535\u5668"
+      phoneModelID: 3
+      quantity: 722
+      maxPrice: 1565.2482
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 82.874565
+    - orderID: 25598
+      customerName: "\u4F01\u4E1A\u5BA2\u6237C"
+      phoneModelID: 3
+      quantity: 370
+      maxPrice: 1509.707
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 53.310745
+    - orderID: 33495
+      customerName: "\u4E2D\u56FD\u8054\u901A"
+      phoneModelID: 3
+      quantity: 925
+      maxPrice: 1478.422
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 32.31791
+    - orderID: 33495
+      customerName: "\u4E2D\u56FD\u8054\u901A"
+      phoneModelID: 3
+      quantity: 925
+      maxPrice: 1478.422
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 32.31791
+    - orderID: 14640
+      customerName: "\u653F\u5E9C\u91C7\u8D2D"
+      phoneModelID: 3
+      quantity: 544
+      maxPrice: 1616.1786
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 44.78385
+    - orderID: 14640
+      customerName: "\u653F\u5E9C\u91C7\u8D2D"
+      phoneModelID: 3
+      quantity: 544
+      maxPrice: 1616.1786
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 44.78385
+    - orderID: 14640
+      customerName: "\u653F\u5E9C\u91C7\u8D2D"
+      phoneModelID: 3
+      quantity: 544
+      maxPrice: 1616.1786
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 44.78385
+    Loans:
+    - loanID: 0
+      companyType: 
+      interestRate: 0
+      amount: 0
+      actualAmount: 0
+      availableCreditLine: 0
+      payInterest: 0
+      year: 0
+      Loanyear: 0
+      SubmissionTime: 
+    - loanID: 0
+      companyType: 
+      interestRate: 0
+      amount: 0
+      actualAmount: 0
+      availableCreditLine: 0
+      payInterest: 0
+      year: 0
+      Loanyear: 0
+      SubmissionTime: 
+    - loanID: 0
+      companyType: 
+      interestRate: 0
+      amount: 0
+      actualAmount: 0
+      availableCreditLine: 0
+      payInterest: 0
+      year: 0
+      Loanyear: 0
+      SubmissionTime: 
+    - loanID: 0
+      companyType: 
+      interestRate: 0
+      amount: 0
+      actualAmount: 0
+      availableCreditLine: 0
+      payInterest: 0
+      year: 0
+      Loanyear: 0
+      SubmissionTime: 
+    TotalLoanedAmount: 0
+    Lands:
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 1
+      CompanyName: "AAA\u624B\u673A\u5382"
+      TotalSupply: 1100
+      RentBidding: 666
+      ApplyforLand: 666
+      ActualAcquisition: 666
+      RemainingLand: 434
+      IsAccept: 1
+      Time: 00:00
+      year: 1
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0
+    - landID: 0
+      CompanyName: 
+      TotalSupply: 0
+      RentBidding: 0
+      ApplyforLand: 0
+      ActualAcquisition: 0
+      RemainingLand: 0
+      IsAccept: 0
+      Time: 
+      year: 0

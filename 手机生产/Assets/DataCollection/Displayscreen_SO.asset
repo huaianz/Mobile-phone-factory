@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab79aed5b6c303041ab0d3e112362bb4, type: 3}
+  m_Name: Displayscreen_SO
+  m_EditorClassIdentifier: 
+  disList:
+  - display_model: "\u4E09\u661F M13 (E7)"
+    manufacturer: "\u4E09\u661F\u663E\u793A"
+    resolution: 3200 x 1440 (2K+)
+    refresh: "1-120Hz \u81EA\u9002\u5E94"
+    price: 1050
+    adopted_models: "\u5C0F\u7C7314 Ultra\u3001vivo X100 Pro+"

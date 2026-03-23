@@ -1,0 +1,104 @@
+{
+    "mbList": [
+        {
+            "ID": 1,
+            "phone_model": "小米14 Pro",
+            "Battery": 1,
+            "Camera1": [5, 2],
+            "Chip": 1,
+            "Displayscreen": 2,
+            "Housing": 1,
+            "Memory": 1
+        },
+        {
+            "ID": 2,
+            "phone_model": "三星Galaxy S23+",
+            "Battery": 2,
+            "Camera1": [3],
+            "Chip": 4,
+            "Displayscreen": 2,
+            "Housing": 1,
+            "Memory": 3
+        },
+        {
+            "ID": 3,
+            "phone_model": "真我GT Neo6",
+            "Battery": 3,
+            "Camera1": [2],
+            "Chip": 6,
+            "Displayscreen": 3,
+            "Housing": 3,
+            "Memory": 5
+        },
+        {
+            "ID": 4,
+            "phone_model": "一加12",
+            "Battery": 4,
+            "Camera1": [2],
+            "Chip": 1,
+            "Displayscreen": 5,
+            "Housing": 1,
+            "Memory": 1
+        },
+        {
+            "ID": 5,
+            "phone_model": "vivo X100 Pro",
+            "Battery": 5,
+            "Camera1": [1],
+            "Chip": 2,
+            "Displayscreen": 1,
+            "Housing": 1,
+            "Memory": 2
+        },
+        {
+            "ID": 6,
+            "phone_model": "vivo X90 Pro+",
+            "Battery": 6,
+            "Camera1": [4],
+            "Chip": 5,
+            "Displayscreen": 2,
+            "Housing": 1,
+            "Memory": 4
+        },
+        {
+            "ID": 7,
+            "phone_model": "iQOO 12",
+            "Battery": 7,
+            "Camera1": [2],
+            "Chip": 1,
+            "Displayscreen": 2,
+            "Housing": 1,
+            "Memory": 1
+        },
+        {
+            "ID": 8,
+            "phone_model": "iPhone 15 Pro",
+            "Battery": 8,
+            "Camera1": [6, 7, 8],
+            "Chip": 3,
+            "Displayscreen": 4,
+            "Housing": 2,
+            "Memory": 1
+        },
+        {
+            "ID": 9,
+            "phone_model": "华为Mate 40 Pro+",
+            "Battery": 9,
+            "Camera1": [1],
+            "Chip": 7,
+            "Displayscreen": 1,
+            "Housing": 4,
+            "Memory": 7
+        },
+        {
+            "ID": 10,
+            "phone_model": "小米10 Pro",
+            "Battery": 10,
+            "Camera1": [5],
+            "Chip": 8,
+            "Displayscreen": 2,
+            "Housing": 1,
+            "Memory": 6
+        }
+    ]
+}

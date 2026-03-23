@@ -1,0 +1,74 @@
+{
+    "meList": [
+        {
+            "ID": 1,
+            "number": 30,
+            "memory_model": "K3LK7K70BM-BGCP",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "16GB",
+            "price": "224",
+            "adopted_models": "小米14 Pro, 一加12, iQOO 12, iPhone 15 Pro"
+        },
+        {
+            "ID": 2,
+            "number": 16,
+            "memory_model": "H9JKNNNFBMAU-ARC",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5T",
+            "capacity": "16GB",
+            "price": "256",
+            "adopted_models": "vivo X100 Pro"
+        },
+        {
+            "ID": 3,
+            "number": 20,
+            "memory_model": "K3LK4K40BM-BGCN",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "160",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "ID": 4,
+            "number": 18,
+            "memory_model": "H9JKNNNFBMAR-ARC",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "176",
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "ID": 5,
+            "number": 25,
+            "memory_model": "K3LK4K40BM-BGCV",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "192",
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "ID": 6,
+            "number": 35,
+            "memory_model": "K3LK4K40BM-MGCL",
+            "manufacturer": "三星",
+            "type": "LPDDR5",
+            "capacity": "12GB",
+            "price": "128",
+            "adopted_models": "小米10 Pro"
+        },
+        {
+            "ID": 7,
+            "number": 12,
+            "memory_model": "H9HKNNNEDMFM-AR",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5",
+            "capacity": "12GB",
+            "price": "216",
+            "adopted_models": "华为Mate 40 Pro+"
+        }
+    ]
+}

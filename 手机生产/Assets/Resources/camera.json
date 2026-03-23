@@ -1,0 +1,84 @@
+{
+    "caList": [
+        {
+            "ID": 1,
+            "number": 5,
+            "camera_model": "索尼 IMX989",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1英寸，5000万像素",
+            "unit_price": "450",
+            "adopted_models": "vivo X100 Pro+, 华为Mate 40 Pro+"
+        },
+        {
+            "ID": 2,
+            "number": 25,
+            "camera_model": "索尼 IMX890",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1/1.56英寸，5000万像素",
+            "unit_price": "120",
+            "adopted_models": "一加12, 真我GT Neo6, iQOO 12"
+        },
+        {
+            "ID": 3,
+            "number": 10,
+            "camera_model": "三星 HP3",
+            "manufacturer": "三星",
+            "type": "广角主摄",
+            "main_specs": "1/1.4英寸，2亿像素",
+            "unit_price": "180",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "ID": 4,
+            "number": 18,
+            "camera_model": "豪威 OV64B",
+            "manufacturer": "豪威科技",
+            "type": "潜望式长焦",
+            "main_specs": "1/2英寸，6400万像素",
+            "unit_price": "95",
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "ID": 5,
+            "number": 30,
+            "camera_model": "索尼 IMX858",
+            "manufacturer": "索尼",
+            "type": "超广角",
+            "main_specs": "1/2.51英寸，5000万像素",
+            "unit_price": "80",
+            "adopted_models": "小米14 Pro, 小米10 Pro"
+        },
+        {
+            "ID": 6,
+            "number": 12,
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1/1.28英寸，4800万像素",
+            "unit_price": "220",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "ID": 7,
+            "number": 12,
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "超广角",
+            "main_specs": "1/2.55英寸，1200万像素",
+            "unit_price": "75",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "ID": 8,
+            "number": 8,
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "长焦",
+            "main_specs": "1/3.1英寸，1200万像素",
+            "unit_price": "100",
+            "adopted_models": "iPhone 15 Pro"
+        }
+    ]
+}

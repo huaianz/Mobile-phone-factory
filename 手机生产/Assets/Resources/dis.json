@@ -1,0 +1,54 @@
+{
+  "disList": [
+    {
+      "ID": 1,
+      "number": 10,
+      "display_model": "三星 M13 (E7)",
+      "manufacturer": "三星显示",
+      "resolution": "3200 x 1440 (2K+)",
+      "refresh": "1-120Hz 自适应",
+      "price": "1050",
+      "adopted_models": "vivo X100 Pro+, 华为Mate 40 Pro+"
+    },
+    {
+      "ID": 2,
+      "number": 40,
+      "display_model": "三星 M11 (E6)",
+      "manufacturer": "三星显示",
+      "resolution": "3088 x 1440 (2K)",
+      "refresh": "1-120Hz 自适应",
+      "price": "800",
+      "adopted_models": "小米14 Pro, iQOO 12, 三星Galaxy S23+, vivo X90 Pro+, 小米10 Pro"
+    },
+    {
+      "ID": 3,
+      "number": 35,
+      "display_model": "华星光电 C8",
+      "manufacturer": "TCL华星",
+      "resolution": "2712 x 1220 (1.5K)",
+      "refresh": "144Hz",
+      "price": "500",
+      "adopted_models": "真我GT Neo6"
+    },
+    {
+      "ID": 4,
+      "number": 18,
+      "display_model": "三星/苹果定制 OLED",
+      "manufacturer": "三星/LG",
+      "resolution": "2796 x 1290",
+      "refresh": "120Hz ProMotion",
+      "price": "1150",
+      "adopted_models": "iPhone 15 Pro"
+    },
+    {
+      "ID": 5,
+      "number": 28,
+      "display_model": "京东方 Q9+",
+      "manufacturer": "京东方",
+      "resolution": "2800 x 1260 (1.5K)",
+      "refresh": "120Hz",
+      "price": "600",
+      "adopted_models": "一加12"
+    }
+  ]
+}

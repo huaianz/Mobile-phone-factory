@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae35a5554b9b5344b95a847db3c96c37, type: 3}
+  m_Name: Housing_SO
+  m_EditorClassIdentifier: 
+  hoList:
+  - part_model: "\u94DD\u5408\u91D1\u4E2D\u6846 (6\u7CFB)"
+    manufacturer: "\u957F\u76C8\u7CBE\u5BC6"
+    material_type: "\u822A\u7A7A\u94DD\u5408\u91D1"
+    price: 55
+    adopted_models: "\u5C0F\u7C7314, iQOO 12, \u591A\u6570\u4E2D\u9AD8\u7AEF\u673A\u578B"

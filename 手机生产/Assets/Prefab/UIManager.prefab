@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5944850710008805873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5944850710008805875}
+  - component: {fileID: 5944850710008805872}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5944850710008805875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944850710008805873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1026.5222, y: 572.4946, z: 0.9565057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5944850710008805872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944850710008805873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304edd815cf43564eb247f88d4817c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chipcontent: {fileID: 0}
+  historychipcontent: {fileID: 0}
+  chipbid: {fileID: 0}
+  Chipinformation: {fileID: 0}
+  ChipHistory: {fileID: 0}
+  ChipBid: {fileID: 0}
+  chip: {fileID: 0}
+  historychip: {fileID: 0}
+  Displayscreen: {fileID: 0}
+  historydiscontent: {fileID: 0}
+  Displaybid: {fileID: 0}
+  Displayinformation: {fileID: 0}
+  DisHistory: {fileID: 0}
+  DisBid: {fileID: 0}
+  display: {fileID: 0}
+  historydis: {fileID: 0}
+  Memory: {fileID: 0}
+  historymecontent: {fileID: 0}
+  Mebid: {fileID: 0}
+  Memoryinformation: {fileID: 0}
+  MeHistory: {fileID: 0}
+  MeBid: {fileID: 0}
+  memory: {fileID: 0}
+  historyme: {fileID: 0}
+  Camera: {fileID: 0}
+  historycacontent: {fileID: 0}
+  Cabid: {fileID: 0}
+  Camerainformation: {fileID: 0}
+  CaHistory: {fileID: 0}
+  CaBid: {fileID: 0}
+  camera1: {fileID: 0}
+  historyca: {fileID: 0}
+  Battery: {fileID: 0}
+  historybacontent: {fileID: 0}
+  Babid: {fileID: 0}
+  Batteryinformation: {fileID: 0}
+  BaHistory: {fileID: 0}
+  BaBid: {fileID: 0}
+  battery: {fileID: 0}
+  historyba: {fileID: 0}
+  Housing: {fileID: 0}
+  historyhocontent: {fileID: 0}
+  Hobid: {fileID: 0}
+  Housinginformation: {fileID: 0}
+  HoHistory: {fileID: 0}
+  HoBid: {fileID: 0}
+  housing: {fileID: 0}
+  historyho: {fileID: 0}
+  BidStatus: {fileID: 0}
+  BidResult: {fileID: 0}
+  BidSimulation: {fileID: 0}
+  Status: {fileID: 0}
+  Result: {fileID: 0}
+  Simulation: {fileID: 0}
+  StartBid: {fileID: 0}
+  SubmitBid: {fileID: 0}
+  BidContent: {fileID: 0}
+  Money: {fileID: 0}
+  policyPanel: {fileID: 0}
+  policyYearDisplay: {fileID: 0}
+  LoanableFunds: {fileID: 0}
+  maxPhonePrice: {fileID: 0}
+  minPhonePrice: {fileID: 0}
+  maxChipPrice: {fileID: 0}
+  maxDisPrice: {fileID: 0}
+  maxMePrice: {fileID: 0}
+  maxCaPrice: {fileID: 0}
+  maxBaPrice: {fileID: 0}
+  maxHoPrice: {fileID: 0}
+  maxLandSupply: {fileID: 0}
+  PraLandSupply: {fileID: 0}
+  minInterestRate: {fileID: 0}
+  PraInterestRate: {fileID: 0}
+  Moneyupply: {fileID: 0}
+  vatRate: {fileID: 0}
+  incomeTaxRate: {fileID: 0}
+  FiscalStimulusRevenue: {fileID: 0}
+  Subsidy: {fileID: 0}
+  FiscalStimulusFunds: {fileID: 0}
+  SubsidyRate: {fileID: 0}
+  BidNumber: {fileID: 0}
+  submitPolicyButton: {fileID: 0}
+  prevYearButton: {fileID: 0}
+  nextYearButton: {fileID: 0}
+  startMeasuresButton: {fileID: 0}
+  loanAmountInput: {fileID: 0}
+  loanRateText: {fileID: 0}
+  actualReceivedText: {fileID: 0}
+  remainingLoanableText: {fileID: 0}
+  Participation: {fileID: 0}
+  NoParticipation: {fileID: 0}
+  loanyear: {fileID: 0}
+  ParticpatePanel: {fileID: 0}
+  resultPanel: {fileID: 0}
+  LoanBidPanel: {fileID: 0}
+  LoanParticpate: {fileID: 0}
+  LoanResult: {fileID: 0}
+  LoanBid: {fileID: 0}
+  loanAmount: {fileID: 0}
+  applyLoanButton: {fileID: 0}
+  LoanStartButton: {fileID: 0}
+  LoanEndButton: {fileID: 0}
+  LoanDelayButton: {fileID: 0}
+  LoannextYear: {fileID: 0}
+  LoanpreYear: {fileID: 0}
+  LoanYear: {fileID: 0}
+  LandParticipation: {fileID: 0}
+  LandNoParticipation: {fileID: 0}
+  LandStartButton: {fileID: 0}
+  LandEndButton: {fileID: 0}
+  LandDelayButton: {fileID: 0}
+  LandSubmit: {fileID: 0}
+  Landmu: {fileID: 0}
+  LandRent: {fileID: 0}
+  LandRentButton: {fileID: 0}
+  TotalSupply: {fileID: 0}
+  ActualAcquisition: {fileID: 0}
+  RemainingLand: {fileID: 0}
+  LandParticpatePanel: {fileID: 0}
+  LandResultPanel: {fileID: 0}
+  LandBidPanel: {fileID: 0}
+  LandParticpate: {fileID: 0}
+  LandResult: {fileID: 0}
+  LandBid: {fileID: 0}
+  LandnextYear: {fileID: 0}
+  LandpreYear: {fileID: 0}
+  LandYear: {fileID: 0}
+  ProductYear: {fileID: 0}
+  ProductnextYear: {fileID: 0}
+  ProductpreYear: {fileID: 0}
+  StartProduct: {fileID: 0}
+  MbPhoneID: {fileID: 0}
+  MbQuantity: {fileID: 0}

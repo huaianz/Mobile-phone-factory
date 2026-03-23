@@ -1,0 +1,699 @@
+{
+    "baList": [
+        {
+            "battery_model": "BM5X",
+            "manufacturer": "宁德时代 / 欣旺达",
+            "capacity": "5000 mAh",
+            "price": "85",
+            "adopted_models": "小米14 Pro"
+        },
+        {
+            "battery_model": "SMP-AB78",
+            "manufacturer": "三星SDI / ATL",
+            "capacity": "4500 mAh",
+            "price": "90",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "battery_model": "BLP833",
+            "manufacturer": "宁德时代 / 欣旺达",
+            "capacity": "4310 mAh",
+            "price": "65",
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "battery_model": "WLD-B58",
+            "manufacturer": "比亚迪",
+            "capacity": "5100 mAh",
+            "price": "95",
+            "adopted_models": "一加12"
+        },
+        {
+            "battery_model": "NCM-AP99",
+            "manufacturer": "宁德时代 / 新能源科技",
+            "capacity": "5000 mAh",
+            "price": "92",
+            "adopted_models": "vivo X100 Pro"
+        },
+        {
+            "battery_model": "NCM-AK88",
+            "manufacturer": "新能源科技",
+            "capacity": "4800 mAh",
+            "price": "78",
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "battery_model": "WLD-B55",
+            "manufacturer": "比亚迪 / 德赛电池",
+            "capacity": "5000 mAh",
+            "price": "70",
+            "adopted_models": "iQOO 12"
+        },
+        {
+            "battery_model": "A2780",
+            "manufacturer": "苹果定制 (德赛/欣旺达制造)",
+            "capacity": "4500 mAh",
+            "price": "120",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "battery_model": "HB-5060",
+            "manufacturer": "欣旺达",
+            "capacity": "5000 mAh",
+            "price": "110",
+            "adopted_models": "华为Mate 40 Pro+"
+        },
+        {
+            "battery_model": "WLD-B45",
+            "manufacturer": "比亚迪 / 德赛电池",
+            "capacity": "4500 mAh",
+            "price": "68",
+            "adopted_models": "小米Note 12"
+        },
+        {
+            "battery_model": "BM4M",
+            "manufacturer": "比亚迪 / 德赛电池",
+            "capacity": "5000 mAh",
+            "price": "85",
+            "adopted_models": "小米10 Pro"
+        }
+    ]
+}
+{
+    "meList": [
+        {
+            "memory_model": "K3LK7K70BM-BGCP",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "16GB",
+            "price": "224",
+            "adopted_models": "小米14 Pro"
+        },
+        {
+            "memory_model": "H9JKNNNFBMAU-ARC",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5T",
+            "capacity": "16GB",
+            "price": "256",
+            "adopted_models": "vivo X100 Pro"
+        },
+        {
+            "memory_model": "K3LK4K40BM-BGCN",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "160",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "memory_model": "H9JKNNNFBMAR-ARC",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "176",
+            "adopted_models": "vivo X90 Pro+"
+        },
+        {
+            "memory_model": "K3LK4K40BM-BGCV",
+            "manufacturer": "三星",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "192",
+            "adopted_models": "真我GT Neo6"
+        },
+        {
+            "memory_model": "H9JKNNNFBMAL-ARC",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5X",
+            "capacity": "12GB",
+            "price": "204",
+            "adopted_models": "小米K70E"
+        },
+        {
+            "memory_model": "K4UBE3D4AB-MGCL",
+            "manufacturer": "三星",
+            "type": "LPDDR4X",
+            "capacity": "8GB",
+            "price": "72",
+            "adopted_models": "小米Note 12"
+        },
+        {
+            "memory_model": "K3LK4K40BM-MGCL",
+            "manufacturer": "三星",
+            "type": "LPDDR5",
+            "capacity": "12GB",
+            "price": "128",
+            "adopted_models": "小米10 Pro"
+        },
+        {
+            "memory_model": "H9HKNNNEDMFM-AR",
+            "manufacturer": "SK海力士",
+            "type": "LPDDR5",
+            "capacity": "12GB",
+            "price": "216",
+            "adopted_models": "华为Mate 40 Pro+"
+        }
+    ]
+}
+{
+    "hoList": [
+        {
+            "part_model": "铝合金中框 (6系)",
+            "manufacturer": "长盈精密",
+            "material_type": "航空铝合金",
+            "price": "55",
+            "adopted_models": "小米14, iQOO 12, 多数中高端机型"
+        },
+        {
+            "part_model": "不锈钢中框 (316L)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "手术级不锈钢",
+            "price": "100",
+            "adopted_models": "小米14 Ultra, iPhone 15 Pro"
+        },
+        {
+            "part_model": "塑料中框+AG玻璃后盖",
+            "manufacturer": "通达集团",
+            "material_type": "PC/ABS塑料与玻璃复合材料",
+            "price": "32",
+            "adopted_models": "小米Note 12, Redmi K70E"
+        },
+        {
+            "part_model": "素皮后盖 (环保定制)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "环保素皮",
+            "price": "40",
+            "adopted_models": "华为Mate 40 Pro+"
+        },
+        {
+            "part_model": "陶瓷后盖 (氧化锆)",
+            "manufacturer": "三环集团",
+            "material_type": "精密陶瓷",
+            "price": "180",
+            "adopted_models": "小米MIX系列 (概念机型)"
+        },
+        {
+            "part_model": "钛合金中框 (Grade 5)",
+            "manufacturer": "比亚迪电子",
+            "material_type": "钛合金",
+            "price": "220",
+            "adopted_models": "iPhone 15 Pro, 三星S24 Ultra (高端版)"
+        }
+    ]
+}
+{
+  "disList": [
+    {
+      "display_model": "三星 M13 (E7)",
+      "manufacturer": "三星显示",
+      "resolution": "3200 x 1440 (2K+)",
+      "refresh": "1-120Hz 自适应",
+      "price": "1050",
+      "adopted_models": "小米14 Ultra、vivo X100 Pro+"
+    },
+    {
+      "display_model": "三星 M11 (E6)",
+      "manufacturer": "三星显示",
+      "resolution": "3088 x 1440 (2K)",
+      "refresh": "1-120Hz 自适应",
+      "price": "800",
+      "adopted_models": "小米13 Pro、iQOO 12"
+    },
+    {
+      "display_model": "京东方 Q9+",
+      "manufacturer": "京东方",
+      "resolution": "2800 x 1260 (1.5K)",
+      "refresh": "120Hz",
+      "price": "600",
+      "adopted_models": "一加 Ace 3、荣耀100 Pro"
+    },
+    {
+      "display_model": "华星光电 C8",
+      "manufacturer": "TCL华星",
+      "resolution": "2712 x 1220 (1.5K)",
+      "refresh": "144Hz",
+      "price": "500",
+      "adopted_models": "Redmi K70、真我 GT Neo6"
+    },
+    {
+      "display_model": "天马 T8",
+      "manufacturer": "天马微电子",
+      "resolution": "2400 x 1080 (FHD+)",
+      "refresh": "144Hz",
+      "price": "350",
+      "adopted_models": "真我 GT Neo5 SE、iQOO Z8"
+    },
+    {
+      "display_model": "三星 刚性 OLED",
+      "manufacturer": "三星显示",
+      "resolution": "2340 x 1080 (FHD+)",
+      "refresh": "60Hz",
+      "price": "250",
+      "adopted_models": "三星 Galaxy A54、小米 Redmi Note 13"
+    },
+    {
+      "display_model": "京东方 120Hz LCD",
+      "manufacturer": "京东方",
+      "resolution": "2376 x 1080 (FHD+)",
+      "refresh": "120Hz",
+      "price": "200",
+      "adopted_models": "Redmi Note 13 Pro、iQOO Z7x"
+    },
+    {
+      "display_model": "维信诺 VM7",
+      "manufacturer": "维信诺",
+      "resolution": "2400 x 1080 (FHD+)",
+      "refresh": "120Hz",
+      "price": "400",
+      "adopted_models": "华为 nova 12、荣耀 X50 GT"
+    },
+    {
+      "display_model": "LG POLED (Rigid)",
+      "manufacturer": "LG显示",
+      "resolution": "2340 x 1080 (FHD+)",
+      "refresh": "90Hz",
+      "price": "420",
+      "adopted_models": "谷歌 Pixel 7a、索尼 Xperia 10 V"
+    },
+    {
+      "display_model": "三星/苹果定制 OLED",
+      "manufacturer": "三星/LG",
+      "resolution": "2796 x 1290",
+      "refresh": "120Hz ProMotion",
+      "price": "1150",
+      "adopted_models": "iPhone 15 Pro 系列"
+    }
+  ]
+}
+{
+    "ChipList": [
+        {
+            "chip_model": "骁龙8 Gen 3",
+            "manufacturer": "高通",
+            "category": "旗舰芯片",
+            "release_date": "2023年10月24日",
+            "process_tech": "4nm N4P",
+            "transistor_count": "193亿个",
+            "price_usd": 120.0,
+            "adopted_models": "小米14系列、三星Galaxy S24系列、一加12、魅族21 Pro、红魔9 Pro"
+        },
+        {
+            "chip_model": "天玑9300",
+            "manufacturer": "联发科",
+            "category": "旗舰芯片",
+            "release_date": "2023年11月6日",
+            "process_tech": "4nm N4P",
+            "transistor_count": "227亿个",
+            "price_usd": 110.0,
+            "adopted_models": "vivo X100系列、OPPO Find X7系列、小米14 Ultra、iQOO 12系列"
+        },
+        {
+            "chip_model": "苹果A17 Pro",
+            "manufacturer": "苹果",
+            "category": "旗舰芯片",
+            "release_date": "2023年9月12日",
+            "process_tech": "3nm N3B",
+            "transistor_count": "190亿个",
+            "price_usd": 130.0,
+            "adopted_models": "iPhone 15 Pro、iPhone 15 Pro Max"
+        },
+        {
+            "chip_model": "骁龙8 Gen 2",
+            "manufacturer": "高通",
+            "category": "高端芯片",
+            "release_date": "2022年11月15日",
+            "process_tech": "4nm N4",
+            "transistor_count": "165亿个",
+            "price_usd": 85.0,
+            "adopted_models": "三星Galaxy S23系列、小米13系列、一加11、iQOO 11、真我20 Pro"
+        },
+        {
+            "chip_model": "天玑9200",
+            "manufacturer": "联发科",
+            "category": "高端芯片",
+            "release_date": "2022年11月8日",
+            "process_tech": "4nm N4",
+            "transistor_count": "170亿个",
+            "price_usd": 75.0,
+            "adopted_models": "vivo X90系列、OPPO Find X6系列、小米13 Lite"
+        },
+        {
+            "chip_model": "Google Tensor G3",
+            "manufacturer": "谷歌",
+            "category": "高端芯片",
+            "release_date": "2023年10月4日",
+            "process_tech": "4nm LPP",
+            "transistor_count": "155亿个",
+            "price_usd": 95.0,
+            "adopted_models": "Google Pixel 8系列、Google Pixel 8 Pro"
+        },
+        {
+            "chip_model": "骁龙7+ Gen 3",
+            "manufacturer": "高通",
+            "category": "中端芯片",
+            "release_date": "2023年3月17日",
+            "process_tech": "4nm",
+            "transistor_count": "120亿个",
+            "price_usd": 65.0,
+            "adopted_models": "小米Note 13 Pro+、真我GT Neo6、iQOO Z8、一加Nord 4"
+        },
+        {
+            "chip_model": "天玑8300",
+            "manufacturer": "联发科",
+            "category": "中端芯片",
+            "release_date": "2023年11月21日",
+            "process_tech": "4nm",
+            "transistor_count": "110亿个",
+            "price_usd": 60.0,
+            "adopted_models": "小米K70E、真我GT Neo5 SE、iQOO Z8x"
+        },
+        {
+            "chip_model": "骁龙6 Gen 1",
+            "manufacturer": "高通",
+            "category": "入门芯片",
+            "release_date": "2022年9月6日",
+            "process_tech": "4nm",
+            "transistor_count": "80亿个",
+            "price_usd": 35.0,
+            "adopted_models": "小米Note 12、真我10 Pro+、vivo Y78、OPPO A98"
+        },
+        {
+            "chip_model": "天玑6100",
+            "manufacturer": "联发科",
+            "category": "入门芯片",
+            "release_date": "2023年7月11日",
+            "process_tech": "6nm",
+            "transistor_count": "60亿个",
+            "price_usd": 25.0,
+            "adopted_models": "小米12C、真我C55、vivo Y36、OPPO A58"
+        },
+        {
+            "chip_model": "骁龙865",
+            "manufacturer": "高通",
+            "category": "旧款芯片",
+            "release_date": "2019年12月4日",
+            "process_tech": "7nm N7P",
+            "transistor_count": "103亿个",
+            "price_usd": 25.0,
+            "adopted_models": "小米10系列、三星Galaxy S20系列、一加8系列、OPPO Find X2系列"
+        },
+        {
+            "chip_model": "麒麟9000",
+            "manufacturer": "海思",
+            "category": "特殊芯片",
+            "release_date": "2020年10月22日",
+            "process_tech": "5nm N5",
+            "transistor_count": "153亿个",
+            "price_usd": 80.0,
+            "adopted_models": "华为Mate 40系列、华为P50系列（海外）"
+        },
+        {
+            "chip_model": "Exynos 2200",
+            "manufacturer": "三星",
+            "category": "高端芯片",
+            "release_date": "2022年1月18日",
+            "process_tech": "4nm LPE",
+            "transistor_count": "信息未提供",
+            "price_usd": 70.0,
+            "adopted_models": "三星Galaxy S22系列（部分型号）、三星Galaxy S23 FE"
+        },
+        {
+            "chip_model": "骁龙888",
+            "manufacturer": "高通",
+            "category": "高端芯片",
+            "release_date": "2020年12月1日",
+            "process_tech": "5nm LPE",
+            "transistor_count": "信息未提供",
+            "price_usd": 60.0,
+            "adopted_models": "小米11系列、一加9系列、OPPO Find X3系列、vivo X70 Pro+"
+        },
+        {
+            "chip_model": "天玑9000",
+            "manufacturer": "联发科",
+            "category": "高端芯片",
+            "release_date": "2021年11月19日",
+            "process_tech": "4nm N4",
+            "transistor_count": "信息未提供",
+            "price_usd": 70.0,
+            "adopted_models": "OPPO Find X5 Pro、vivo X80 Pro、小米12 Pro、真我"
+        },
+        {
+            "chip_model": "苹果A15 Bionic",
+            "manufacturer": "苹果",
+            "category": "高端芯片",
+            "release_date": "2021年9月14日",
+            "process_tech": "5nm N5P",
+            "transistor_count": "150亿个",
+            "price_usd": 90.0,
+            "adopted_models": "iPhone 13系列、iPhone 14、iPhone 14 Plus、iPhone SE（第二代）"
+        },
+        {
+            "chip_model": "骁龙870",
+            "manufacturer": "高通",
+            "category": "中端芯片",
+            "release_date": "2021年1月19日",
+            "process_tech": "7nm N7P",
+            "transistor_count": "信息未提供",
+            "price_usd": 35.0,
+            "adopted_models": "小米10S、一加9R、OPPO Find X3 Neo、vivo S10 Pro"
+        },
+        {
+            "chip_model": "天玑8100",
+            "manufacturer": "联发科",
+            "category": "中端芯片",
+            "release_date": "2022年3月1日",
+            "process_tech": "5nm N5",
+            "transistor_count": "信息未提供",
+            "price_usd": 45.0,
+            "adopted_models": "小米K50、一加Ace、真我GT Neo3、OPPO Reno8 Pro+"
+        },
+        {
+            "chip_model": "Google Tensor G2",
+            "manufacturer": "谷歌",
+            "category": "中端芯片",
+            "release_date": "2022年10月6日",
+            "process_tech": "5nm LPE",
+            "transistor_count": "信息未提供",
+            "price_usd": 75.0,
+            "adopted_models": "Google Pixel 7系列、Google Pixel 7a"
+        },
+        {
+            "chip_model": "展锐T760",
+            "manufacturer": "展锐",
+            "category": "入门芯片",
+            "release_date": "2022年3月15日",
+            "process_tech": "6nm EUV",
+            "transistor_count": "信息未提供",
+            "price_usd": 20.0,
+            "adopted_models": "Tecno系列、传音旗下智能手机"
+        },
+        {
+            "chip_model": "苹果A14 Bionic",
+            "manufacturer": "苹果",
+            "category": "高端芯片",
+            "release_date": "2020年9月15日",
+            "process_tech": "5nm N5",
+            "transistor_count": "118亿个",
+            "price_usd": 70.0,
+            "adopted_models": "iPhone 12系列、iPad Air（第四代）"
+        },
+        {
+            "chip_model": "骁龙855",
+            "manufacturer": "高通",
+            "category": "旧款芯片",
+            "release_date": "2018年12月5日",
+            "process_tech": "7nm N7",
+            "transistor_count": "67亿个",
+            "price_usd": 20.0,
+            "adopted_models": "小米9、三星Galaxy S10系列、一加7 Pro、OPPO Reno 10倍变焦版"
+        },
+        {
+            "chip_model": "麒麟990 5G",
+            "manufacturer": "海思",
+            "category": "旧款芯片",
+            "release_date": "2019年9月6日",
+            "process_tech": "7nm+ EUV",
+            "transistor_count": "103亿个",
+            "price_usd": 40.0,
+            "adopted_models": "华为Mate 30系列、华为P40系列、荣耀V30系列"
+        },
+        {
+            "chip_model": "Exynos 2100",
+            "manufacturer": "三星",
+            "category": "高端芯片",
+            "release_date": "2021年1月12日",
+            "process_tech": "5nm LPE",
+            "transistor_count": "信息未提供",
+            "price_usd": 55.0,
+            "adopted_models": "三星Galaxy S21系列（部分型号）、三星Galaxy S21 FE"
+        },
+        {
+            "chip_model": "骁龙778G",
+            "manufacturer": "高通",
+            "category": "中端芯片",
+            "release_date": "2021年5月18日",
+            "process_tech": "6nm N6",
+            "transistor_count": "信息未提供",
+            "price_usd": 40.0,
+            "adopted_models": "荣耀50系列、小米11 Lite 5G NE、三星Galaxy A52s 5G、iQOO Z5"
+        },
+        {
+            "chip_model": "天玑7200",
+            "manufacturer": "联发科",
+            "category": "中端芯片",
+            "release_date": "2023年2月16日",
+            "process_tech": "4nm",
+            "transistor_count": "信息未提供",
+            "price_usd": 50.0,
+            "adopted_models": "小米11 Pro+、vivo S17e、OPPO Reno10"
+        },
+        {
+            "chip_model": "苹果A13 Bionic",
+            "manufacturer": "苹果",
+            "category": "旧款芯片",
+            "release_date": "2019年9月10日",
+            "process_tech": "7nm N7P",
+            "transistor_count": "85亿个",
+            "price_usd": 45.0,
+            "adopted_models": "iPhone 11系列、iPhone SE（第二代）"
+        },
+        {
+            "chip_model": "骁龙480",
+            "manufacturer": "高通",
+            "category": "入门芯片",
+            "release_date": "2021年1月4日",
+            "process_tech": "8nm LPP",
+            "transistor_count": "信息未提供",
+            "price_usd": 15.0,
+            "adopted_models": "摩托罗拉G50、OPPO A74 5G、vivo Y31s、小米Redmi Note 10 5G"
+        },
+        {
+            "chip_model": "天玑700",
+            "manufacturer": "联发科",
+            "category": "入门芯片",
+            "release_date": "2020年11月11日",
+            "process_tech": "7nm",
+            "transistor_count": "信息未提供",
+            "price_usd": 18.0,
+            "adopted_models": "小米Note 10 5G、真我V13、OPPO A55 5G、vivo Y52s"
+        },
+        {
+            "chip_model": "Google Tensor G1",
+            "manufacturer": "谷歌",
+            "category": "中端芯片",
+            "release_date": "2021年10月19日",
+            "process_tech": "5nm LPE",
+            "transistor_count": "信息未提供",
+            "price_usd": 65.0,
+            "adopted_models": "Google Pixel 6系列、Google Pixel 6a"
+        },
+        {
+            "chip_model": "骁龙8s Gen 3",
+            "manufacturer": "高通",
+            "category": "高端芯片",
+            "release_date": "2024年3月18日",
+            "process_tech": "4nm",
+            "transistor_count": "信息未提供",
+            "price_usd": 95.0,
+            "adopted_models": "小米Civi 4 Pro、真我GT Neo6、一加Ace 3 Pro"
+        },
+        {
+            "chip_model": "天玑9200+",
+            "manufacturer": "联发科",
+            "category": "高端芯片",
+            "release_date": "2023年5月10日",
+            "process_tech": "4nm N4",
+            "transistor_count": "信息未提供",
+            "price_usd": 78.0,
+            "adopted_models": "iQOO Neo8 Pro、vivo X8S Pro、真我20 Infinity"
+        },
+        {
+            "chip_model": "苹果M1",
+            "manufacturer": "苹果",
+            "category": "特殊芯片",
+            "release_date": "2020年11月10日",
+            "process_tech": "5nm N5",
+            "transistor_count": "160亿个",
+            "price_usd": 100.0,
+            "adopted_models": "MacBook Air (M1)、MacBook Pro 13英寸 (M1)、iPad Pro (2021)、Mac mini (M1)"
+        },
+        {
+            "chip_model": "麒麟9000S",
+            "manufacturer": "海思",
+            "category": "特殊芯片",
+            "release_date": "2023年8月29日",
+            "process_tech": "7nm",
+            "transistor_count": "信息未提供",
+            "price_usd": 85.0,
+            "adopted_models": "华为Mate 60系列、华为Mate X5"
+        }
+    ]
+}
+{
+    "caList": [
+        {
+            "camera_model": "索尼 IMX989",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1英寸，5000万像素",
+            "unit_price": "450",
+            "adopted_models": "小米14 Ultra, vivo X100 Pro+"
+        },
+        {
+            "camera_model": "索尼 IMX890",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1/1.56英寸，5000万像素",
+            "unit_price": "120",
+            "adopted_models": "一加12, 真我GT Neo6"
+        },
+        {
+            "camera_model": "三星 HP3",
+            "manufacturer": "三星",
+            "type": "广角主摄",
+            "main_specs": "1/1.4英寸，2亿像素",
+            "unit_price": "180",
+            "adopted_models": "三星Galaxy S23+"
+        },
+        {
+            "camera_model": "豪威 OV64B",
+            "manufacturer": "豪威科技",
+            "type": "潜望式长焦",
+            "main_specs": "1/2英寸，6400万像素",
+            "unit_price": "95",
+            "adopted_models": "小米14, Redmi K70 Pro"
+        },
+        {
+            "camera_model": "索尼 IMX858",
+            "manufacturer": "索尼",
+            "type": "超广角",
+            "main_specs": "1/2.51英寸，5000万像素",
+            "unit_price": "80",
+            "adopted_models": "小米14系列 (超广角)"
+        },
+        {
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "广角主摄",
+            "main_specs": "1/1.28英寸，4800万像素",
+            "unit_price": "220",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "超广角",
+            "main_specs": "1/2.55英寸，1200万像素",
+            "unit_price": "75",
+            "adopted_models": "iPhone 15 Pro"
+        },
+        {
+            "camera_model": "定制索尼传感器 (型号未知)",
+            "manufacturer": "索尼",
+            "type": "长焦",
+            "main_specs": "1/3.1英寸，1200万像素",
+            "unit_price": "100",
+            "adopted_models": "iPhone 15 Pro Max (5倍长焦)"
+        }
+    ]
+}
