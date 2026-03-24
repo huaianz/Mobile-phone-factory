@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject historyho;
 
     [Header("数据的加载路径")]
-    public string file = "D:/yx/手机生产/Assets/Resources/";
+    private string resourcesPath;
     [Header("资产")]
     public Inventory_SO Inventory;
 
@@ -178,10 +178,10 @@ public class GameManager : Singleton<GameManager>
     public GameObject performancePrefab;
 
     public GameObject AssetsContent;
-    public GameObject AssetsPrefab;
+    //public GameObject AssetsPrefab;
 
     public GameObject costAccountingContent;
-    public GameObject costAccountingPrefab;
+    //public GameObject costAccountingPrefab;
 
     void Start()
     {
@@ -192,26 +192,32 @@ public class GameManager : Singleton<GameManager>
         EventHandler.CallUpdateMoneyUI(Inventory.Bag);
 
     }
+
+    protected override void Awake()
+    {
+        base.Awake();               // 执行基类的单例初始化
+        resourcesPath = Application.dataPath + "/Resources/";
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
             PackageLocalData.Instance.SaveMb(Mbphone);
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Mbphone = PackageLocalData.Instance.LoadMb(file + "phone.json");
+            Mbphone = PackageLocalData.Instance.LoadMb(resourcesPath + "phone.json");
         }
     }
 
     private IEnumerator LoadAllData()
     {
         yield return new WaitForSeconds(0.5f);
-        ChipData = PackageLocalData.Instance.LoadChip(file + "chip.json");
-        Displayscreen = PackageLocalData.Instance.LoadDisplay(file + "dis.json");
-        Memory = PackageLocalData.Instance.LoadMe(file + "memory.json");
-        Camera1 = PackageLocalData.Instance.LoadCa(file + "camera.json");
-        Battery = PackageLocalData.Instance.LoadBa(file + "battery.json");
-        Housing = PackageLocalData.Instance.LoadHo(file + "housing.json");
-        Mbphone = PackageLocalData.Instance.LoadMb(file + "phone.json");
+        ChipData = PackageLocalData.Instance.LoadChip(resourcesPath + "chip.json");
+        Displayscreen = PackageLocalData.Instance.LoadDisplay(resourcesPath + "dis.json");
+        Memory = PackageLocalData.Instance.LoadMe(resourcesPath + "memory.json");
+        Camera1 = PackageLocalData.Instance.LoadCa(resourcesPath + "camera.json");
+        Battery = PackageLocalData.Instance.LoadBa(resourcesPath + "battery.json");
+        Housing = PackageLocalData.Instance.LoadHo(resourcesPath + "housing.json");
+        Mbphone = PackageLocalData.Instance.LoadMb(resourcesPath + "phone.json");
         GetChipText();
         GetDisText();
         GetMeText();

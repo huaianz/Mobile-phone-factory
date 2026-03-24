@@ -163,7 +163,7 @@ public class PackageLocalData
         string chipJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/chip.json";
+        string filePath = Application.dataPath + "/Resources/chip/chip.json";
         File.WriteAllText(filePath, chipJson);
 
         Debug.Log($"保存成功: {filePath}, 保存了 {data.ChipList.Count} 个芯片");
@@ -231,7 +231,7 @@ public class PackageLocalData
         string disJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/dis.json";
+        string filePath = Application.dataPath + "/Resources/dis/dis.json";
         File.WriteAllText(filePath, disJson);
 
         Debug.Log($"保存成功: {filePath}, 保存了 {data.disList.Count} 个芯片");
@@ -292,7 +292,7 @@ public class PackageLocalData
         string meJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/memory.json";
+        string filePath = Application.dataPath + "/Resources/memory/memory.json";
         File.WriteAllText(filePath, meJson);
     }
     public Memory_SO LoadMe(string  filePath)
@@ -349,7 +349,7 @@ public class PackageLocalData
         string meJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/camera.json";
+        string filePath = Application.dataPath + "/Resources/camera/camera.json";
         File.WriteAllText(filePath, meJson);
     }
     public Camera_SO LoadCa(string filePath)
@@ -407,7 +407,7 @@ public class PackageLocalData
         string baJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/battery.json";
+        string filePath = Application.dataPath + "/Resources/battery/battery.json";
         File.WriteAllText(filePath, baJson);
     }
     public Battery_SO LoadBa(string filePath)
@@ -466,7 +466,7 @@ public class PackageLocalData
         string hoJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/housing.json";
+        string filePath = Application.dataPath + "/Resources/housing/housing.json";
         File.WriteAllText(filePath, hoJson);
     }
     public Housing_SO LoadHo(string filePath)
@@ -525,7 +525,7 @@ public class PackageLocalData
         string mbJson = JsonUtility.ToJson(data, true);
 
         // 3. 保存到文件
-        string filePath = "D:/yx/手机生产/Assets/Resources/phone.json";
+        string filePath = Application.dataPath + "/Resources/phone/phone.json";
         File.WriteAllText(filePath, mbJson);
     }
     public Mbphone_SO LoadMb(string filePath)
