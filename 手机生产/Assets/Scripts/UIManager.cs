@@ -137,6 +137,8 @@ public class UIManager : Singleton<UIManager>
     public Button nextYearButton;
     public Button startMeasuresButton;
 
+    public Text policyYear;
+
     [Header("贷款")]
     public InputField loanAmountInput;
     public Text loanRateText;
@@ -203,6 +205,7 @@ public class UIManager : Singleton<UIManager>
     public Text ProductYear;
     public Button ProductnextYear;
     public Button ProductpreYear;
+
     public Button StartProduct;
     public Button EndProduct;
 
@@ -217,6 +220,19 @@ public class UIManager : Singleton<UIManager>
     [Header("订单交付")]
     public Button Delivery;
 
+    public Text deliveryYear;
+    public Button deliverynextYear;
+    public Button deliverypreYear;
+
+    [Header("补贴")]
+    public Text subsidyYear;
+    public Button subsidynextYear;
+    public Button subsidypreYear;
+
+    [Header("绩效")]
+    public Text performanceYear;
+    public Button performancenextYear;
+    public Button performancepreYear;
     private void Start()
     {
         //刚开始要禁止掉的按钮
@@ -224,6 +240,17 @@ public class UIManager : Singleton<UIManager>
         LandSubmit.interactable = false;
         LandStartButton.interactable = false;//为了让玩家先输入土地租金再进行竞拍
         LandRentButton.interactable = false;//先判断是否参与再输入土地租金，防止报错
+
+        //刚开始要显示的初始化年份
+        deliveryYear.text = GameManager.Instance.currentYear.ToString();
+        GameManager.Instance.LoadDeliveryForYear(GameManager.Instance.currentYear);
+
+        subsidyYear.text = GameManager.Instance.currentYear.ToString();
+        GameManager.Instance.LoadSubsidyForYear(GameManager.Instance.currentYear);
+
+        performanceYear.text = GameManager.Instance.currentYear.ToString();
+        GameManager.Instance.LoadPerformanceForYear(GameManager.Instance.currentYear);
+
 
         //切换按钮的事件注册
         Chipinformation.onClick.AddListener(() => CloseAndOpen(chipcontent, historychipcontent,chipbid));
@@ -328,6 +355,25 @@ public class UIManager : Singleton<UIManager>
         //订单交付
         if(Delivery!=null)
             Delivery.onClick.AddListener(()=>GameManager.Instance.DeliveryDisplay());
+        //上一年，下一年
+        if (deliverynextYear != null)
+            deliverynextYear.onClick.AddListener(() => GameManager.Instance.deliveryNextYear());
+        if (subsidypreYear != null)
+            deliverypreYear.onClick.AddListener(() => GameManager.Instance.deliveryPrevYear());
+        
+        //补贴
+        if(subsidynextYear!=null)
+            deliverynextYear.onClick.AddListener(() => GameManager.Instance.subsidyPrevYear());
+        if(subsidypreYear!=null)
+            deliverypreYear.onClick.AddListener(() => GameManager.Instance.subsidyNextYear());
+
+        //损益表
+        if (performancenextYear != null)
+            performancenextYear.onClick.AddListener(() => GameManager.Instance.performancePrevYear());
+        if (performancepreYear != null)
+            performancepreYear.onClick.AddListener(() => GameManager.Instance.performanceNextYear());
+
+
     }
 
     private void OnEnable()

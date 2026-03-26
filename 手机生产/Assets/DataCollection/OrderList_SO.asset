@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeOrders: []
   wonOrders:
-  - orderID: 14640
-    customerName: "\u653F\u5E9C\u91C7\u8D2D"
-    phoneModelID: 3
-    quantity: 544
-    maxPrice: 1616.1786
+  - orderID: 95718
+    customerName: "\u6D77\u5916\u5BA2\u6237A"
+    phoneModelID: 1
+    quantity: 14
+    maxPrice: 1828.9865
     currentBidPrice: 666
     daysRemaining: 0
     isActive: 0
     isWon: 1
-    deliveryDeadline: 44.78385
+    deliveryDeadline: 33.825443
   completedOrders: []

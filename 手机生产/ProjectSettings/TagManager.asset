@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - BidName
+  - DeliveryItem
+  - SubsidyItem
+  - PerformanceItem
   layers:
   - Default
   - TransparentFX

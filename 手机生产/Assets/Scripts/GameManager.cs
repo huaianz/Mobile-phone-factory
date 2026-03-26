@@ -118,6 +118,10 @@ public class GameManager : Singleton<GameManager>
     public Text policyYearText;//用来在UI上显示当前年份
     public int currentYear = 1;
     public bool isPolicyActive = false;
+    public bool IsPolicyYear=true;
+
+    //切换政策年份时显示的年份
+    public int policyYear=1;
 
     [Header("贷款系统")]
     public Loan_SO loan;
@@ -128,8 +132,11 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject resultContent;
     public GameObject CommercialLoanResults;
-    public bool IsLoanYear;
+    public bool IsLoanYear=true;
     public int currentLoanYear = 1;
+
+    //切换贷款年份时显示的年份
+    public int LoanYear=1;
 
     [Header("土地系统")]
     public Land_SO land;
@@ -138,8 +145,11 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject LandResultContent;
     public GameObject LandResutlts;
-    public bool IsLandYear;
+    public bool IsLandYear=true;
     public int currentLandYear = 1;
+
+    //切换土地年份时显示的年份
+    public int LandYear=1;
 
     //土地查看
     public GameObject LandInspectionContent;
@@ -151,25 +161,37 @@ public class GameManager : Singleton<GameManager>
     public GameObject ProductContent;
     public GameObject Productprefab;
 
-    public bool IsProductYear;
+    public bool IsProductYear=true;
     public int currentProductYear;
 
     //手机生产信息表
     public GameObject MbPhonePrefab;
     public GameObject MbPhoneInformationContent;
 
+    //切换生产年份时显示的年份
+    public int ProductYear=1;
+
+
     [Header("订单交付")]
     public Delivery_SO delivery;
     public Delivery currentDelivery;
     public GameObject deliveryContent;
     public GameObject deliveryprefabs;
-    //关于年份好几个没搞
-
+    //切换订单交付年份时显示的年份
+    public int deliveryYear=1;
+    public bool IsDeliveryYear=true;
+    // 记录当前年份是否已经交付（防止重复交付）
+    private bool isYearDelivered = false;
     [Header("补贴")]
     public subsidy_SO subsidy;
     public GameObject subsidyContent;
     public GameObject subsidyPrefabs;
     public subsidy currentSubsidy;
+    //切换补贴年份时显示的年份
+    public int subsidyYear=1;
+    public bool IsSubsidyYear = true;
+    // 当前年份是否有补贴数据（交付后生成）
+    private bool hasSubsidyData = false;
 
     [Header("绩效")]
     public Formance_SO formance;
@@ -183,6 +205,24 @@ public class GameManager : Singleton<GameManager>
     public GameObject costAccountingContent;
     //public GameObject costAccountingPrefab;
 
+    //切换损益表年份时显示的年份
+    public int performanceYear=1;
+    public bool IsPerformanceYear=true;
+
+    private bool hasPerformanceData = false;
+
+    [Header("决策历史和消息")]
+    public List<string> HistoryMessages=new List<string>();
+    // 缓存已创建的消息气泡
+    [SerializeField] private List<GameObject> CurrentBox=new List<GameObject>();
+
+    //气泡预制体
+    [SerializeField] private GameObject messageBubblePrefab;
+
+    // 气泡的父物体
+    [SerializeField] private Transform parentTransform;
+
+
     void Start()
     {
         if (GameManager.Instance != null)
@@ -191,6 +231,20 @@ public class GameManager : Singleton<GameManager>
         }
         EventHandler.CallUpdateMoneyUI(Inventory.Bag);
 
+        //刚开始防止报空
+        for(int i=0;i<Inventory.Bag.Count;i++)
+        {
+            if(Inventory.Bag[i].Lands == null)
+            {
+                Land land = new Land();
+                Inventory.Bag[i].Lands.Add(land);
+            }
+            if(Inventory.Bag[i].Loans==null)
+            {
+                Loan land = new Loan();
+                Inventory.Bag[i].Loans.Add(land);
+            }
+        }
     }
 
     protected override void Awake()
@@ -320,12 +374,14 @@ public class GameManager : Singleton<GameManager>
         if (ParseFloat(UIManager.Instance.PraLandSupply, currentPolicy.PraLandSupply) > currentPolicy.maxLandSupply)
         {
             Debug.Log("输入的土地实际供给量太大了");
+            AddMessage("第"+currentYear+"年输入的土地实际供给量太大了,请重新输入");
             EventHandler.CallUpdatePolicyUI(currentPolicy);//刷新UI
             return;
         }
         if (ParseFloat(UIManager.Instance.PraInterestRate, currentPolicy.PraInterestRate) < currentPolicy.minInterestRate)
         {
             Debug.Log("输入的年度最低利率太大了");
+            AddMessage("第" + currentYear + "年输入的年度最低利率太大了,请重新输入");
             EventHandler.CallUpdatePolicyUI(currentPolicy);//刷新UI
             return;
         }
@@ -374,18 +430,36 @@ public class GameManager : Singleton<GameManager>
 
         //ApplyCurrentPolicy();//应用政府效果（订单数），放到开始政府政策按钮上
         EventHandler.CallUpdatePolicyUI(currentPolicy);//刷新UI
+        AddMessage($"政策已提交，年份是{currentYear}");
         Debug.Log($"政策已提交，年份是{currentYear}");
     }
 
+    //根据年份找到相关的政策信息
+    private void LoadPolicyForYear(int year)
+    {
+        //首先看有没有这一年的信息，没有则返回
+        if (governmentPolicy.GetPolicyForYear(year) == null)
+        {
+            IsPolicyYear = false;
+            return;
+        }
+        GovernmentPolicy Policy= governmentPolicy.GetPolicyForYear(year);
+        EventHandler.CallUpdatePolicyUI(Policy);
+    }
     public void PrevYear()
     {
         if (isPolicyActive)
         {
             Debug.LogWarning("政府措施已开始，无法切换年份");
+            AddMessage("第" + currentYear + "年政府措施已开始，无法切换年份");
             return;
         }
-        currentYear = Mathf.Max(1, currentYear - 1);
-        LoadPolicyForYear(currentYear);
+        int year=Mathf.Max(1, policyYear - 1);
+        LoadPolicyForYear(year);
+        if (IsPolicyYear)
+        {
+            policyYear = year;
+        }
     }
 
     public void NextYear()
@@ -393,22 +467,16 @@ public class GameManager : Singleton<GameManager>
         if (isPolicyActive)
         {
             Debug.LogWarning("政府措施已开始，无法切换年份");
+            AddMessage("第" + currentYear + "年政府措施已开始，无法切换年份");
             return;
         }
-        currentYear++;
-        LoadPolicyForYear(currentYear);
-    }
-
-    private void LoadPolicyForYear(int year)
-    {
-        currentPolicy = governmentPolicy.GetPolicyForYear(year);
-        if (currentPolicy == null)
+        int year = policyYear++;
+        LoadPolicyForYear(year);
+        if (IsPolicyYear)
         {
-            currentPolicy = CreateDefaultPhoneIndustryPolicy();
+            policyYear = year;
         }
-        EventHandler.CallUpdatePolicyUI(currentPolicy);
     }
-
     //开始政府措施
     public void StartMeasures()
     {
@@ -421,6 +489,7 @@ public class GameManager : Singleton<GameManager>
         SubsidyInitialization();
         //初始化损益表
         performanceInitialization();
+        AddMessage("第" + currentYear + "年政府措施已开始");
     }
 
     public void EndMeasures()
@@ -1191,11 +1260,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(chipid.text) || string.IsNullOrEmpty(chipcount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(chipid.text, out int idValue) || !int.TryParse(chipcount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in ChipData.chipList)
@@ -1205,6 +1276,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear +"年芯片数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 //计算花销
@@ -1234,11 +1306,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(disid.text) || string.IsNullOrEmpty(discount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(disid.text, out int idValue) || !int.TryParse(discount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in Displayscreen.disList)
@@ -1248,6 +1322,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear + "年显示屏数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 Inventory.Bag[0].expense+= countValue * item.price;
@@ -1278,11 +1353,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(meid.text) || string.IsNullOrEmpty(mecount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(meid.text, out int idValue) || !int.TryParse(mecount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in Memory.MeList)
@@ -1292,6 +1369,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear + "年内存数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 Inventory.Bag[0].expense += countValue * item.price;
@@ -1320,11 +1398,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(caid.text) || string.IsNullOrEmpty(cacount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(caid.text, out int idValue) || !int.TryParse(cacount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in Camera1.caList)
@@ -1334,6 +1414,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear + "年摄像机数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 Inventory.Bag[0].expense += countValue * item.unit_price;
@@ -1361,11 +1442,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(baid.text) || string.IsNullOrEmpty(bacount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(baid.text, out int idValue) || !int.TryParse(bacount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in Battery.baList)
@@ -1375,6 +1458,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear + "年电池数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 Inventory.Bag[0].expense += countValue * item.price;
@@ -1403,11 +1487,13 @@ public class GameManager : Singleton<GameManager>
         if (string.IsNullOrEmpty(hoid.text) || string.IsNullOrEmpty(hocount.text))
         {
             Debug.Log("id或count不能为空");
+            AddMessage("id或count不能为空");
             return;
         }
         if (!int.TryParse(hoid.text, out int idValue) || !int.TryParse(hocount.text, out int countValue))
         {
             Debug.Log("id和count必须是整数");
+            AddMessage("id和count必须是整数");
             return;
         }
         foreach (var item in Housing.hoList)
@@ -1417,6 +1503,7 @@ public class GameManager : Singleton<GameManager>
                 if (item.number - countValue < 0)
                 {
                     Debug.Log("数量不够了,还剩" + item.number.ToString());
+                    AddMessage("第" + currentYear + "年外壳材料数量不够了,还剩" + item.number.ToString());
                     return;
                 }
                 Inventory.Bag[0].expense += countValue * item.price;
@@ -1631,6 +1718,7 @@ public class GameManager : Singleton<GameManager>
         orderData.activeOrders.AddRange(newOrders);
         ShowBid();
         Debug.Log($"生成了{newOrders.Count}个初始订单");
+        AddMessage("生成了"+newOrders.Count+"个初始订单");
     }
 
     //生成新订单
@@ -1658,7 +1746,9 @@ public class GameManager : Singleton<GameManager>
             orderData.activeOrders.Remove(order);
             orderData.wonOrders.Add(order);
 
-            Debug.Log($"订单 {order.orderID} 竞标结束，玩家中标！");
+            Debug.Log("第"+currentYear+$"年订单 {order.orderID} 竞标结束，玩家中标！");
+            AddMessage("第" +currentYear+$"年订单 {order.orderID} 竞标结束，玩家中标！");
+
 
 
         }
@@ -1666,6 +1756,7 @@ public class GameManager : Singleton<GameManager>
         {
             orderData.activeOrders.Remove(order);
             Debug.Log($"订单 {order.orderID} 竞标结束，无人中标");
+            AddMessage("第"+currentYear+$"年订单 {order.orderID} 竞标结束，无人中标");
         }
     }
 
@@ -1804,11 +1895,13 @@ public class GameManager : Singleton<GameManager>
         //存入到当前生产里
         ProductNumber();
         //更新生产
-        UpdateProduct();
+        UpdateProduct(currentProduct);
         //存入玩家背包
         BidPutinbag();
         //初始化订单交付
         DeliveryInitialization();
+
+        AddMessage("第" + currentYear +"年订单竞拍结束");
     }
 
     //延迟结束竞拍
@@ -1845,7 +1938,7 @@ public class GameManager : Singleton<GameManager>
         AgainShowBid();
 
         UIManager.Instance.RestoreClick();
-
+        AddMessage("第" + currentYear +"年订单竞拍重新开始");
     }
 
     /// <summary>
@@ -1862,6 +1955,7 @@ public class GameManager : Singleton<GameManager>
         if (ParseFloat(UIManager.Instance.loanAmount, currentLoan.amount) > currentLoan.availableCreditLine)
         {
             Debug.Log("想要竞拍的金额大于剩余可贷金额");
+            AddMessage("想要竞拍的金额大于剩余可贷金额");
             return;
         }
         currentLoan.amount = ParseFloat(UIManager.Instance.loanAmount, currentLoan.amount);
@@ -2050,6 +2144,7 @@ public class GameManager : Singleton<GameManager>
         loan.UpdateLoan(currentYear, currentLoan);
         EventHandler.CallUpdateLoanUI(currentLoan, currentPolicy);
         Debug.Log("已经存入贷款，存入年份为" + currentYear);
+        AddMessage("已经存入贷款，存入年份为" + currentYear);
     }
 
     //根据年份找到相关的贷款信息
@@ -2061,30 +2156,41 @@ public class GameManager : Singleton<GameManager>
             IsLoanYear = false;
             return;
         }
-        currentLoan = loan.GetLoanForYear(year);
-        EventHandler.CallUpdateLoanUI(currentLoan, currentPolicy);
+        Loan loans = loan.GetLoanForYear(year);
+        GovernmentPolicy policys=governmentPolicy.GetPolicyForYear(year);
+        EventHandler.CallUpdateLoanUI(loans, policys);
     }
 
     public void LoanPreYear()
     {
-        LoadLoanForYear(Mathf.Max(1, currentLoanYear - 1));
+        int year = Mathf.Max(1, LoanYear - 1);
+        LoadLoanForYear(year);
         if (!IsLoanYear)
         {
             Debug.Log("没有当前年份的贷款信息");
+            AddMessage("没有当前年份的贷款信息");
             return;
         }
-        currentLoanYear = Mathf.Max(1, currentLoanYear - 1);
+        else
+        {
+            LoanYear = year;
+        }
     }
 
     public void LoanNextYear()
     {
-        LoadLoanForYear(currentLoanYear++);
+        int year = LoanYear++;
+        LoadLoanForYear(year);
         if (!IsLoanYear)
         {
             Debug.Log("没有当前年份的贷款信息");
+            AddMessage("没有当前年份的贷款信息");
             return;
         }
-        currentLoanYear++;
+        else
+        {
+            LoanYear = year;
+        }
     }
     //剩余贷款用来查看玩家的贷款情况，先把土地竞标搞完再写剩余贷款
 
@@ -2189,6 +2295,7 @@ public class GameManager : Singleton<GameManager>
         orderData.activeOrders.AddRange(newOrders);
         ShowBid();//重新生成
         Debug.Log($"生成了{newOrders.Count}个政府措施订单");
+        AddMessage("第" + currentYear +"年生成了"+newOrders.Count+"个政府措施订单");
     }
     //关于修改原材料价格（暂时不考虑修改）
     private void ApplyMaterialPriceControls()
@@ -2447,6 +2554,7 @@ public class GameManager : Singleton<GameManager>
         if (ParseFloat(UIManager.Instance.Landmu, currentLand.ApplyforLand) > currentLand.RemainingLand)
         {
             Debug.Log("申请的土地太大了。超过了目前剩余的土地");
+            AddMessage(currentYear + "申请的土地太大了。超过了目前剩余的土地");
             return;
         }
         currentLand.ApplyforLand = ParseFloat(UIManager.Instance.Landmu, currentLand.ApplyforLand);
@@ -2484,6 +2592,7 @@ public class GameManager : Singleton<GameManager>
         land.UpdateLand(currentYear, currentLand);
         EventHandler.CallUpdateLandUI(currentLand, currentPolicy);
         Debug.Log("已经存入贷款，存入年份为" + currentYear);
+        AddMessage("已经存入贷款，存入年份为" + currentYear);
         //生成新的土地查看
         LandInspection();
     }
@@ -2496,29 +2605,41 @@ public class GameManager : Singleton<GameManager>
             IsLandYear = false;
             return;
         }
-        currentLand = land.GetLandForYear(year);
-        EventHandler.CallUpdateLandUI(currentLand, currentPolicy);
+        Land lands = land.GetLandForYear(year);
+        GovernmentPolicy policys=governmentPolicy.GetPolicyForYear(year);
+        EventHandler.CallUpdateLandUI(lands, policys);
     }
     public void LandPrevYear()
     {
-        LoadLandForYear(Mathf.Max(1, currentLandYear - 1));
+        int year = Mathf.Max(1, LandYear - 1);
+        LoadLandForYear(year);
         if (!IsLandYear)
         {
             Debug.Log("没有当前年份的土地信息");
+            AddMessage("没有当前年份的土地信息");
             return;
         }
-        currentLandYear = Mathf.Max(1, currentLandYear - 1);
+        else
+        {
+            LandYear=year;
+        }
+       
     }
 
     public void LandNextYear()
     {
-        LoadPolicyForYear(currentLandYear++);
+        int year = LandYear++;
+        LoadPolicyForYear(year);
         if (!IsLandYear)
         {
             Debug.Log("没有当前年份的土地信息");
+            AddMessage("没有当前年份的土地信息");
             return;
         }
-        currentLandYear++;
+        else
+        {
+            LandYear = year;
+        }
     }
 
     //土地查看的生成
@@ -2621,7 +2742,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void UpdateProduct()
+    public void UpdateProduct(Product product)
     {
         int counter = 1;
         for (int i = 0; i < Inventory.Bag.Count; i++)
@@ -2633,25 +2754,25 @@ public class GameManager : Singleton<GameManager>
                 switch (text.name)
                 {
                     case "Company Name":
-                        text.text = currentProduct.CompanyName;
+                        text.text = product.CompanyName;
                         break;
                     case "CompanyType":
-                        text.text = currentProduct.CompanyType;
+                        text.text = product.CompanyType;
                         break;
                     case "ProductionLineName":
-                        text.text = currentProduct.ProductionLineName;
+                        text.text = product.ProductionLineName;
                         break;
                     case "YearOfCreation":
-                        text.text = currentProduct.YearOfCreation.ToString();
+                        text.text = product.YearOfCreation.ToString();
                         break;
                     case "YearOfSale":
-                        text.text = currentProduct.YearOfSale.ToString();
+                        text.text = product.YearOfSale.ToString();
                         break;
                     case "RefurbishedStatus":
-                        text.text = currentProduct.RefurbishedStatus;
+                        text.text = product.RefurbishedStatus;
                         break;
                     case "TotalNumber":
-                        text.text = currentProduct.TotalNumber.ToString();
+                        text.text = product.TotalNumber.ToString();
                         break;
                     default:
                         break;
@@ -2659,7 +2780,7 @@ public class GameManager : Singleton<GameManager>
             }
             texts = Array.Empty<Text>();
         }
-        UIManager.Instance.ProductYear.text = currentProductYear.ToString();
+        UIManager.Instance.ProductYear.text = ProductYear.ToString();
     }
 
     //计算生产总数量
@@ -2688,7 +2809,7 @@ public class GameManager : Singleton<GameManager>
         currentProduct.YearOfSale = currentYear;
         currentProduct.RefurbishedStatus = "未翻新改造";
         currentProduct.year = currentYear;
-        UpdateProduct();
+        UpdateProduct(currentProduct);
     }
 
     //结束生产，存入
@@ -2715,8 +2836,9 @@ public class GameManager : Singleton<GameManager>
         }
         //根据年份存入
         product.UpdateProduct(currentYear, currentProduct);
-        UpdateProduct();
+        UpdateProduct(currentProduct);
         Debug.Log("已经存入生产线信息，存入年份为" + currentYear);
+        AddMessage("已经存入生产线信息，存入年份为" + currentYear);
     }
 
 
@@ -2733,6 +2855,7 @@ public class GameManager : Singleton<GameManager>
         if (quantity <= 0)
         {
             Debug.Log("生产数量必须大于0");
+            AddMessage("生产数量必须大于0");
             return false;
         }
 
@@ -2741,6 +2864,7 @@ public class GameManager : Singleton<GameManager>
         if (phoneModel == null)
         {
             Debug.LogError($"手机型号 ID {modelID} 不存在");
+            AddMessage($"手机型号 ID {modelID} 不存在");
             return false;
         }
 
@@ -2758,6 +2882,7 @@ public class GameManager : Singleton<GameManager>
         if (maxWorkers <= 0)
         {
             Debug.LogWarning("没有足够的土地，无法雇佣工人进行生产");
+            AddMessage("没有足够的土地，无法雇佣工人进行生产");
             return false;
         }
 
@@ -2786,6 +2911,7 @@ public class GameManager : Singleton<GameManager>
             if (k > maxK)
             {
                 Debug.LogWarning($"目标产量 {quantity} 即使极限加班（{maxK} 级）也无法达到，请增加土地或减少目标。");
+                AddMessage($"目标产量 {quantity} 即使极限加班（{maxK} 级）也无法达到，请增加土地或减少目标。");
                 return false;
             }
 
@@ -2794,6 +2920,7 @@ public class GameManager : Singleton<GameManager>
             if (actualByLabor < quantity)
             {
                 Debug.LogWarning($"因工人和加班限制，实际最多可生产 {actualByLabor} 台，将按此数量生产。");
+                AddMessage($"因工人和加班限制，实际最多可生产 {actualByLabor} 台，将按此数量生产。");
                 quantity = actualByLabor; // 调整目标为劳动力允许的最大值
             }
 
@@ -2804,6 +2931,7 @@ public class GameManager : Singleton<GameManager>
         if (Inventory.Bag[0].money < totalCost)
         {
             Debug.LogWarning($"资金不足，需要 {totalCost} 元，当前 {Inventory.Bag[0].money} 元");
+            AddMessage($"资金不足，需要 {totalCost} 元，当前 {Inventory.Bag[0].money} 元");
             return false;
         }
 
@@ -2831,6 +2959,7 @@ public class GameManager : Singleton<GameManager>
         //更新数据表
         UpdateMbphoneInformation();
         Debug.Log($"生产完成：型号 {modelID}，目标 {quantity}，实际组装 {assembled} 台，使用工人 {workersToUse}，加班等级 {k}，总成本 {totalCost} 元");
+        AddMessage($"生产完成：型号 {modelID}，目标 {quantity}，实际组装 {assembled} 台，使用工人 {workersToUse}，加班等级 {k}，总成本 {totalCost} 元");
         return true;
     }
 
@@ -2845,6 +2974,7 @@ public class GameManager : Singleton<GameManager>
         if (modelID <= 0 || quantity <= 0)
         {
             Debug.Log("请输入有效的手机型号ID和数量（正整数）");
+            AddMessage("请输入有效的手机型号ID和数量（正整数）");
             return;
         }
 
@@ -2860,6 +2990,7 @@ public class GameManager : Singleton<GameManager>
         if (phoneModel == null)
         {
             Debug.LogError($"手机型号 ID {modelID} 不存在");
+            AddMessage($"手机型号 ID {modelID} 不存在");
             return 0;
         }
 
@@ -2886,6 +3017,7 @@ public class GameManager : Singleton<GameManager>
         if (actualQuantity <= 0)
         {
             Debug.Log("组件不足，无法组装");
+            AddMessage("组件不足，无法组装");
             return 0;
         }
 
@@ -2915,6 +3047,7 @@ public class GameManager : Singleton<GameManager>
             Inventory.Bag[0].phones.Add(new phone { ID = modelID, number = actualQuantity });
 
         Debug.Log($"成功组装 {actualQuantity} 台 {phoneModel.phone_model}");
+        AddMessage("第"+currentYear+$"年成功组装 {actualQuantity} 台 {phoneModel.phone_model}");
         return actualQuantity;
     }
 
@@ -3007,7 +3140,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
     //根据年份找到相关的生产组装信息
-    private void LoadProductForYear(int year)
+    public void LoadProductForYear(int year)
     {
         //首先看有没有这一年的信息，没有则返回
         if (product.GetProductForYear(year) == null)
@@ -3015,30 +3148,42 @@ public class GameManager : Singleton<GameManager>
             IsProductYear = false;
             return;
         }
-        currentProduct = product.GetProductForYear(year);
+        Product products  = product.GetProductForYear(year);
         //这里的更新直接调用上面的方法就行
-        UpdateProduct();
+        UpdateProduct(products); 
     }
     public void ProductPreYear()
     {
-        LoadProductForYear(Mathf.Max(1, currentProductYear - 1));
+        int year = Mathf.Max(1, ProductYear - 1);
+        LoadProductForYear(year);
         if (!IsProductYear)
         {
             Debug.Log("没有当前年份的生产组装信息");
+            AddMessage("没有当前年份的生产组装信息");
             return;
         }
-        currentProductYear = Mathf.Max(1, currentProductYear - 1);
+        else
+        {
+            ProductYear = year;
+        }
+
     }
 
     public void ProductNextYear()
     {
-        LoadProductForYear(currentProductYear++);
+        int year = ProductYear++;
+        LoadProductForYear(year);
         if (!IsProductYear)
         {
             Debug.Log("没有当前年份的生产组装信息");
+            AddMessage("没有当前年份的生产组装信息");
             return;
         }
-        currentProductYear++;
+        else
+        {
+            ProductYear = year;
+        }
+
     }
 
 
@@ -3046,6 +3191,13 @@ public class GameManager : Singleton<GameManager>
     //订单信息初始化,在竞标完的时候初始化
     public void DeliveryInitialization()
     {
+        // 清空旧的交付UI
+        foreach (Transform child in deliveryContent.transform)
+        {
+            if (child.CompareTag("DeliveryItem")) 
+                Destroy(child.gameObject);
+        }
+
         int counter = 1;
         for (int i = 0; i < orderData.wonOrders.Count; i++)
         {
@@ -3071,7 +3223,6 @@ public class GameManager : Singleton<GameManager>
                         text.text = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number.ToString();
                         break;
                     case "quotation":
-                        //暂时用最大价格作为报价，考虑一下竞拍的时候的目前报价
                         text.text = orderData.wonOrders[i].maxPrice.ToString();
                         break;
                     case "orderQuantity":
@@ -3093,12 +3244,23 @@ public class GameManager : Singleton<GameManager>
                         break;
                 }
             }
-            texts = Array.Empty<Text>();
         }
+
+        // 重置年份交付标记
+        isYearDelivered = false;
+        // 交付按钮默认可交互（但需要等待订单完成生产后才能交付，这里按业务逻辑设置）
+        UIManager.Instance.Delivery.interactable = true;
     }
     //订单交付后的显示
     public void DeliveryDisplay()
     {
+        if (isYearDelivered)
+        {
+            AddMessage($"第 {currentYear} 年订单已经交付过，不能重复交付！");
+            return;
+        }
+
+        // 更新UI数据（基于当前库存）
         int counter = 1;
         for (int i = 0; i < orderData.wonOrders.Count; i++)
         {
@@ -3121,7 +3283,6 @@ public class GameManager : Singleton<GameManager>
                         text.text = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number.ToString();
                         break;
                     case "quotation":
-                        //暂时用最大价格作为报价，考虑一下竞拍的时候的目前报价
                         text.text = orderData.wonOrders[i].maxPrice.ToString();
                         break;
                     case "orderQuantity":
@@ -3129,50 +3290,34 @@ public class GameManager : Singleton<GameManager>
                         break;
                     case "SubmittedCount":
                         if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-                        {
                             text.text = orderData.wonOrders[i].quantity.ToString();
-                        }
                         else
-                        {
                             text.text = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number.ToString();
-                        }
                         break;
                     case "UnpaidQuantity":
                         if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-                        {
                             text.text = "0";
-                        }
                         else
-                        {
                             text.text = (orderData.wonOrders[i].quantity - Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number).ToString();
-                        }
                         break;
                     case "TotalRevenue":
                         if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-                        {
                             text.text = (orderData.wonOrders[i].quantity * orderData.wonOrders[i].maxPrice).ToString();
-                        }
                         else
-                        {
                             text.text = (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number * orderData.wonOrders[i].maxPrice).ToString();
-                        }
                         break;
                     case "liquidatedDamages":
-                        //未交货罚款 = 未交数量 × 订单竞标报价 × 20 %
                         if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-                        {
                             text.text = "0";
-                        }
                         else
-                        {
                             text.text = ((orderData.wonOrders[i].quantity - Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number) * orderData.wonOrders[i].maxPrice * 0.2f).ToString();
-                        }
                         break;
                     default:
                         break;
                 }
             }
-            //扣除相应库存
+
+            // 扣除库存
             if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
             {
                 Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number -= orderData.wonOrders[i].quantity;
@@ -3181,74 +3326,192 @@ public class GameManager : Singleton<GameManager>
             {
                 Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number = 0;
             }
-            texts = Array.Empty<Text>();
         }
 
-        //同时存入数据
+        // 保存交付数据到 SO
         DeliveryInformation();
-        //交付按钮只能点击一次，防止重复扣除
+
+        // 标记本年度已交付
+        isYearDelivered = true;
+        // 交付按钮禁用
         UIManager.Instance.Delivery.interactable = false;
+
+        AddMessage($"第 {currentYear} 年订单已交付");
     }
 
     public void DeliveryInformation()
     {
-        float Income = 0;
+        float totalIncome = 0;
         for (int i = 0; i < orderData.wonOrders.Count; i++)
         {
-            currentDelivery.CompanyName = "AAA手机厂";
-            currentDelivery.deliveryID = orderData.wonOrders[i].orderID;
-            currentDelivery.MbphoneName = Mbphone.mbList[orderData.wonOrders[i].phoneModelID - 1].phone_model;
-            currentDelivery.inventory = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number;
-            currentDelivery.quotation = orderData.wonOrders[i].maxPrice;
-            currentDelivery.orderQuantity = orderData.wonOrders[i].quantity;
-            if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
+            // 创建新的 Delivery 对象，每个订单单独存储
+            Delivery newDelivery = new Delivery
             {
-                currentDelivery.SubmittedCount = orderData.wonOrders[i].quantity;
-            }
-            else
-            {
-                currentDelivery.SubmittedCount = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number;
-            }
-            if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-            {
-                currentDelivery.UnpaidQuantity = 0;
-            }
-            else
-            {
-                currentDelivery.UnpaidQuantity = orderData.wonOrders[i].quantity - Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number;
-            }
-            if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-            {
-                currentDelivery.TotalRevenue = orderData.wonOrders[i].quantity * orderData.wonOrders[i].maxPrice;
-            }
-            else
-            {
-                currentDelivery.TotalRevenue = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number * orderData.wonOrders[i].maxPrice;
-            }
-            if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
-            {
-                currentDelivery.liquidatedDamages = 0;
-            }
-            else
-            {
-                currentDelivery.liquidatedDamages = (orderData.wonOrders[i].quantity - Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number) * orderData.wonOrders[i].maxPrice * 0.2f;
-            }
-            currentDelivery.year = currentYear;
+                deliveryID = orderData.wonOrders[i].orderID,
+                CompanyName = "AAA手机厂",
+                MbphoneName = Mbphone.mbList[orderData.wonOrders[i].phoneModelID - 1].phone_model,
+                inventory = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number,
+                quotation = orderData.wonOrders[i].maxPrice,
+                orderQuantity = orderData.wonOrders[i].quantity,
+                year = currentYear
+            };
 
-            //计算出销售收入
-            Income += (currentDelivery.TotalRevenue - currentDelivery.liquidatedDamages);
-            currentSubsidy.income = Income;
-            Debug.Log(currentSubsidy.income);
-            delivery.UpdateDelivery(currentYear, currentDelivery);
-            SubsidyDisplay();
+            // 根据库存计算实际交付数量和收入
+            if (Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number >= orderData.wonOrders[i].quantity)
+            {
+                newDelivery.SubmittedCount = orderData.wonOrders[i].quantity;
+                newDelivery.UnpaidQuantity = 0;
+                newDelivery.TotalRevenue = orderData.wonOrders[i].quantity * orderData.wonOrders[i].maxPrice;
+                newDelivery.liquidatedDamages = 0;
+            }
+            else
+            {
+                int delivered = Inventory.Bag[0].phones[orderData.wonOrders[i].phoneModelID - 1].number;
+                newDelivery.SubmittedCount = delivered;
+                newDelivery.UnpaidQuantity = orderData.wonOrders[i].quantity - delivered;
+                newDelivery.TotalRevenue = delivered * orderData.wonOrders[i].maxPrice;
+                newDelivery.liquidatedDamages = newDelivery.UnpaidQuantity * orderData.wonOrders[i].maxPrice * 0.2f;
+            }
+
+            // 存储到 Delivery_SO
+            delivery.AddDelivery(newDelivery);
+
+            // 累加收入（用于补贴和绩效）
+            totalIncome += newDelivery.TotalRevenue - newDelivery.liquidatedDamages;
+        }
+
+        // 更新补贴收入
+        currentSubsidy.income = totalIncome;
+        Debug.Log($"总收入（扣除罚款后）: {currentSubsidy.income}");
+
+        // 调用补贴显示（若需要）
+        SubsidyDisplay();
+    }
+
+    // 加载指定年份的交付记录并刷新UI
+    public void LoadDeliveryForYear(int year)
+    {
+        // 清空当前交付UI
+        foreach (Transform child in deliveryContent.transform)
+        {
+            if (child.CompareTag("DeliveryItem"))
+                Destroy(child.gameObject);
+        }
+
+        //获取该年份的所有交付记录
+        List<Delivery> deliveries = delivery.delivery.FindAll(d => d.year == year);
+        if (deliveries.Count == 0)
+        {
+            Debug.Log($"第 {year} 年没有交付记录");
+            // 如果是当前年份，但尚未交付，则保持交付按钮可用
+            if (year == currentYear && orderData.wonOrders.Count > 0 && !isYearDelivered)
+            {
+                UIManager.Instance.Delivery.interactable = true;
+            }
+            else
+            {
+                UIManager.Instance.Delivery.interactable = false;
+            }
+            return;
+        }
+
+        // 根据 deliveries 列表生成UI
+        int counter = 1;
+        foreach (var d in deliveries)
+        {
+            GameObject A = Instantiate(deliveryprefabs, deliveryContent.transform);
+            A.name = counter.ToString();
+            counter++;
+            Text[] texts = A.GetComponentsInChildren<Text>();
+
+            foreach (Text text in texts)
+            {
+                switch (text.name)
+                {
+                    case "CompanyName":
+                        text.text = d.CompanyName;
+                        break;
+                    case "deliveryID":
+                        text.text = d.deliveryID.ToString();
+                        break;
+                    case "MbphoneName":
+                        text.text = d.MbphoneName;
+                        break;
+                    case "inventory":
+                        text.text = d.inventory.ToString();
+                        break;
+                    case "quotation":
+                        text.text = d.quotation.ToString();
+                        break;
+                    case "orderQuantity":
+                        text.text = d.orderQuantity.ToString();
+                        break;
+                    case "SubmittedCount":
+                        text.text = d.SubmittedCount.ToString();
+                        break;
+                    case "UnpaidQuantity":
+                        text.text = d.UnpaidQuantity.ToString();
+                        break;
+                    case "TotalRevenue":
+                        text.text = d.TotalRevenue.ToString();
+                        break;
+                    case "liquidatedDamages":
+                        text.text = d.liquidatedDamages.ToString();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        // 历史年份交付按钮不可用
+        if (year != currentYear)
+        {
+            UIManager.Instance.Delivery.interactable = false;
+        }
+        else
+        {
+            // 当前年份：如果有未交付的订单且尚未交付，才允许交付
+            if (orderData.wonOrders.Count > 0 && !isYearDelivered)
+                UIManager.Instance.Delivery.interactable = true;
+            else
+                UIManager.Instance.Delivery.interactable = false;
         }
     }
+    // 上一年
+    public void deliveryPrevYear()
+    {
+        int year = Mathf.Max(1, deliveryYear - 1);
+        LoadDeliveryForYear(year);
+        // 检查是否有该年份数据（即使没有，也显示空白界面，但年份可以切换）
+        deliveryYear = year;
+        UIManager.Instance.deliveryYear.text = deliveryYear.ToString();
+    }
+
+    // 下一年
+    public void deliveryNextYear()
+    {
+        int year = deliveryYear + 1;
+        LoadDeliveryForYear(year);
+        deliveryYear = year;
+        UIManager.Instance.deliveryYear.text = deliveryYear.ToString();
+    }
+
+
 
 
     //-----------政府补贴------------
     //初始化（放在政府措施下来以后）
     public void SubsidyInitialization()
     {
+        // 清空旧的补贴UI
+        foreach (Transform child in subsidyContent.transform)
+        {
+            if (child.CompareTag("SubsidyItem"))
+                Destroy(child.gameObject);
+        }
+
+        // 初始化时显示当前年份的空数据（等交付后会更新）
         int counter = 1;
         for (int i = 0; i < Inventory.Bag.Count; i++)
         {
@@ -3273,68 +3536,175 @@ public class GameManager : Singleton<GameManager>
                     case "subsidyFunds":
                         text.text = "0";
                         break;
-                    default:
-                        break;
                 }
             }
-            texts = Array.Empty<Text>();
         }
-    }
-    //交付完订单后的显示
+
+        hasSubsidyData = false;
+    }    //交付完订单后的显示
     public void SubsidyDisplay()
     {
-        int counter = 1;
-        for (int i = 0; i < Inventory.Bag.Count; i++)
+        // 更新当前年份的补贴数据
+        currentSubsidy.CompanyName = "AAA手机厂";
+        currentSubsidy.SubsidyRate = currentPolicy.SubsidyRate;
+        //currentSubsidy.income = currentSubsidy.income; 
+        currentSubsidy.subsidyFunds = currentSubsidy.income * currentPolicy.SubsidyRate;
+        currentSubsidy.year = currentYear;
+
+        // 存储到 subsidy_SO（使用 AddSubsidy 方法，而非覆盖）
+        subsidy.AddSubsidy(currentSubsidy);
+        hasSubsidyData = true;
+
+        // 刷新当前年份的 UI
+        LoadSubsidyForYear(currentYear);
+    }
+
+    public void LoadSubsidyForYear(int year)
+    {
+        // 清空当前补贴UI
+        foreach (Transform child in subsidyContent.transform)
         {
-            Text[] texts = subsidyContent.transform.Find(counter.ToString()).GetComponentsInChildren<Text>();
-            counter++;
+            if (child.CompareTag("SubsidyItem"))
+                Destroy(child.gameObject);
+        }
+
+        // 如果是当前年份，直接显示 currentSubsidy（可能未交付时为空）
+        if (year == currentYear)
+        {
+            // 如果有补贴数据（已交付）则显示，否则显示空数据
+            int counter = 1;
+            for (int i = 0; i < Inventory.Bag.Count; i++)
+            {
+                GameObject A = Instantiate(subsidyPrefabs, subsidyContent.transform);
+                A.name = counter.ToString();
+                counter++;
+                Text[] texts = A.GetComponentsInChildren<Text>();
+
+                foreach (Text text in texts)
+                {
+                    switch (text.name)
+                    {
+                        case "CompanyName":
+                            text.text = "AAA手机厂";
+                            break;
+                        case "SubsidyRate":
+                            text.text = currentPolicy.SubsidyRate.ToString();
+                            break;
+                        case "income":
+                            text.text = hasSubsidyData ? currentSubsidy.income.ToString() : "0";
+                            break;
+                        case "subsidyFunds":
+                            text.text = hasSubsidyData ? currentSubsidy.subsidyFunds.ToString() : "0";
+                            break;
+                    }
+                }
+            }
+            return;
+        }
+
+        List<subsidy> subsidies = subsidy.subsidy.FindAll(s => s.year == year);
+        if (subsidies.Count == 0)
+        {
+            return;
+        }
+
+        int historyCounter = 1;
+        foreach (var s in subsidies)
+        {
+            GameObject A = Instantiate(subsidyPrefabs, subsidyContent.transform);
+            A.name = historyCounter.ToString();
+            historyCounter++;
+            Text[] texts = A.GetComponentsInChildren<Text>();
+
             foreach (Text text in texts)
             {
                 switch (text.name)
                 {
                     case "CompanyName":
-                        text.text = "AAA手机厂";
+                        text.text = s.CompanyName;
                         break;
                     case "SubsidyRate":
-                        text.text = currentPolicy.SubsidyRate.ToString();
+                        text.text = s.SubsidyRate.ToString();
                         break;
                     case "income":
-                        text.text = currentSubsidy.income.ToString();//生产销售收入（这里可能需要把所有订单获取的钱加一起计算）
+                        text.text = s.income.ToString();
                         break;
                     case "subsidyFunds":
-                        text.text = (currentSubsidy.income * currentPolicy.SubsidyRate).ToString();//政府补贴
-                        break;
-                    default:
+                        text.text = s.subsidyFunds.ToString();
                         break;
                 }
             }
-            texts = Array.Empty<Text>();
-
-            //存入
-            currentSubsidy.CompanyName = "AAA手机厂";
-            currentSubsidy.SubsidyRate = currentPolicy.SubsidyRate;
-            currentSubsidy.subsidyFunds = currentSubsidy.income * currentPolicy.SubsidyRate;
-            currentSubsidy.year = currentYear;
-            subsidy.UpdateSubsidy(currentYear, currentSubsidy);
-
-            //更新最后的损益表
-            Updateperformance();
         }
-
-
     }
 
+    public void subsidyPrevYear()
+    {
+        int targetYear = subsidyYear - 1;
+        if (targetYear < 1)
+        {
+            AddMessage("已经是第一年，无法切换");
+            return;
+        }
 
-    //3.钱要进行加减
-    //4.补贴的显示预制体要调一下大小，同时它未显示钱
-    //5.年份
-    //报空的问题
+        // 检查目标年份是否有数据
+        bool hasData = false;
+        if (targetYear == currentYear)
+        {
+            // 当前年份可能有数据（已交付）也可能没有
+            hasData = hasSubsidyData; 
+        }
+        else
+        {
+            hasData = subsidy.subsidy.Exists(s => s.year == targetYear);
+        }
+
+        if (!hasData)
+        {
+            AddMessage($"第 {targetYear} 年没有补贴数据，无法切换");
+            return;
+        }
+
+        subsidyYear = targetYear;
+        LoadSubsidyForYear(subsidyYear);
+        UIManager.Instance.subsidyYear.text = subsidyYear.ToString();
+    }
+
+    public void subsidyNextYear()
+    {
+        int targetYear = subsidyYear + 1;
+        bool hasData = false;
+        if (targetYear == currentYear)
+        {
+            hasData = hasSubsidyData; 
+        }
+        else
+        {
+            hasData = subsidy.subsidy.Exists(s => s.year == targetYear);
+        }
+
+        if (!hasData)
+        {
+            AddMessage($"第 {targetYear} 年没有补贴数据，无法切换");
+            return;
+        }
+
+        subsidyYear = targetYear;
+        LoadSubsidyForYear(subsidyYear);
+        UIManager.Instance.subsidyYear.text = subsidyYear.ToString();
+    }
 
     //---------绩效-----------
     //1.损益表
     //先初始化
     public void performanceInitialization()
     {
+        // 清空旧UI
+        foreach (Transform child in performanceContent.transform)
+        {
+            if (child.CompareTag("PerformanceItem")) 
+                Destroy(child.gameObject);
+        }
+
         int counter = 1;
         for (int i = 0; i < Inventory.Bag.Count; i++)
         {
@@ -3347,184 +3717,229 @@ public class GameManager : Singleton<GameManager>
             {
                 switch (text.name)
                 {
-                    case "1":
-                        text.text = "AAA手机厂";
-                        break;
-                    case "2":
-                        text.text = "0";
-                        break;
-                    case "3":
-                        text.text = currentPolicy.vatRate.ToString();
-                        break;
-                    case "4":
-                        text.text = "0";
-                        break;
-                    case "5":
-                        text.text = "0";//销售收入
-                        break;
-                    case "6":
-                        text.text = "0";
-                        break;
-                    case "7":
-                        text.text = "0";
-                        break;
-                    case "8":
-                        text.text = "0";//毛利
-                        break;
-                    case "9":
-                        text.text = "0";
-                        break;
-                    case "10":
-                        text.text = "0";
-                        break;
-                    case "11":
-                        text.text = "0";
-                        break;
-                    case "12":
-                        text.text = "0";
-                        break;
-                    case "13":
-                        text.text = "0";//营业利润
-                        break;
-                    case "14":
-                        text.text = "0";
-                        break;
-                    case "15":
-                        text.text = "0";
-                        break;
-                    case "16":
-                        text.text = "0";//利润总额
-                        break;
-                    case "17":
-                        text.text = currentPolicy.incomeTaxRate.ToString();
-                        break;
-                    case "18":
-                        text.text = "0";
-                        break;
-                    case "19":
-                        text.text = "0";//净利润
-                        break;
-                    case "20":
-                        text.text = "0";
-                        break;
-                    case "21":
-                        text.text = "0";
-                        break;
-                    default:
-                        break;
+                    case "1": text.text = "AAA手机厂"; break;
+                    case "2": text.text = "0"; break;
+                    case "3": text.text = currentPolicy.vatRate.ToString(); break;
+                    case "4": text.text = "0"; break;
+                    case "5": text.text = "0"; break;
+                    case "6": text.text = "0"; break;
+                    case "7": text.text = "0"; break;
+                    case "8": text.text = "0"; break;
+                    case "9": text.text = "0"; break;
+                    case "10": text.text = "0"; break;
+                    case "11": text.text = "0"; break;
+                    case "12": text.text = "0"; break;
+                    case "13": text.text = "0"; break;
+                    case "14": text.text = "0"; break;
+                    case "15": text.text = "0"; break;
+                    case "16": text.text = "0"; break;
+                    case "17": text.text = currentPolicy.incomeTaxRate.ToString(); break;
+                    case "18": text.text = "0"; break;
+                    case "19": text.text = "0"; break;
+                    case "20": text.text = "0"; break;
+                    case "21": text.text = "0"; break;
                 }
             }
-            texts = Array.Empty<Text>();
         }
+
+        hasPerformanceData = false;
     }
 
     //在交付后更新损益表
     public void Updateperformance()
     {
-        //先保存，再更新
-        int counter = 1;
-        for (int i = 0; i < Inventory.Bag.Count; i++)
+        currentformance.companyName = "AAA手机厂";
+        currentformance.revenueWithTax = delivery.delivery.FindAll(d => d.year == currentYear).Sum(d => d.TotalRevenue) * (1 + currentPolicy.vatRate);
+        currentformance.vatRate = currentPolicy.vatRate;
+        currentformance.vatPayable = currentformance.outputTax - currentformance.inputTax;
+        currentformance.salesRevenue = delivery.delivery.FindAll(d => d.year == currentYear).Sum(d => d.TotalRevenue) * (1 + currentPolicy.vatRate);
+        currentformance.costOfGoodsSold = Inventory.Bag[0].rawMaterial + Inventory.Bag[0].manual;
+        currentformance.landRent = land.land.Find(l => l.year == currentYear)?.RentBidding ?? 0;
+        currentformance.grossProfit = subsidy.subsidy.Find(s => s.year == currentYear)?.income ?? 0 - Inventory.Bag[0].expense;
+        currentformance.advertisingExpense = 50000;
+        currentformance.renovationCost = 0;
+        currentformance.managementExpense = 20000;
+        currentformance.interestExpense = loan.loan.Find(l => l.Loanyear == currentYear)?.payInterest ?? 0;
+        currentformance.operatingProfit = currentformance.grossProfit - currentformance.renovationCost - currentformance.advertisingExpense - currentformance.managementExpense - currentformance.interestExpense;
+        currentformance.currentReward = subsidy.subsidy.Find(s => s.year == currentYear)?.subsidyFunds ?? 0;
+        currentformance.penalty = delivery.delivery.FindAll(d => d.year == currentYear).Sum(d => d.liquidatedDamages);
+        currentformance.totalProfit = currentformance.operatingProfit + currentformance.currentReward - currentformance.penalty;
+        currentformance.incomeTaxRate = currentPolicy.incomeTaxRate;
+        currentformance.incomeTax = currentformance.totalProfit * currentformance.incomeTaxRate;
+        currentformance.netProfit = currentformance.totalProfit - currentformance.incomeTax;
+        currentformance.inputTax = Inventory.Bag[0].rawMaterial;
+        currentformance.outputTax = currentformance.salesRevenue;
+        currentformance.year = currentYear;
+
+        // 存储到 formance_SO
+        formance.AddFormance(currentformance);
+        hasPerformanceData = true;
+
+        // 刷新当前年份UI
+        LoadPerformanceForYear(currentYear);
+    }
+    public void LoadPerformanceForYear(int year)
+    {
+        // 清空当前绩效UI
+        foreach (Transform child in performanceContent.transform)
         {
-            currentformance.companyName="AAA手机厂";          // 公司名字
-            currentformance.revenueWithTax= delivery.delivery[i].TotalRevenue * (1 + currentPolicy.vatRate);        // 含税收入 暂时用销售收入代替
-            currentformance.vatRate=currentPolicy.vatRate;               // 增值税率（%）
-            currentformance.vatPayable = currentformance.outputTax- currentformance.inputTax;// 减：增值税
-            currentformance.salesRevenue = delivery.delivery[i].TotalRevenue * (1 + currentPolicy.vatRate);          // 一、销售收入（不含税）
-            currentformance.costOfGoodsSold=Inventory.Bag[i].rawMaterial+Inventory.Bag[i].manual;       // 减：已销售产品的原料与人工成本(不含税)
-            currentformance.landRent=land.land[i].RentBidding;              // 土地和厂房租赁费
-            currentformance.grossProfit= subsidy.subsidy[i].income - Inventory.Bag[i].expense;           // 二、毛利
-            currentformance.advertisingExpense=50000;    // 广告费暂时算5万
-            currentformance.renovationCost=0;        // 翻新改造投入
-            currentformance.managementExpense=20000;     // 管理费用
-            currentformance.interestExpense= loan.loan[i].payInterest;  // 利息
-            currentformance.operatingProfit= subsidy.subsidy[i].income - Inventory.Bag[i].expense - currentformance.renovationCost- currentformance.advertisingExpense- currentformance.managementExpense- currentformance.interestExpense;       // 三、营业利润
-            currentformance.currentReward= subsidy.subsidy[i].subsidyFunds;//奖励，目前只有补贴
-            currentformance.penalty= delivery.delivery[i].liquidatedDamages;               // 减：违规操作罚金
-            currentformance.totalProfit = currentformance.operatingProfit+ currentformance.currentReward - currentformance.penalty;           // 四、利润总额
-            currentformance.incomeTaxRate=currentPolicy.incomeTaxRate;         // 所得税率（%）
-            currentformance.incomeTax= currentformance.totalProfit* currentformance.incomeTaxRate;             // 减：所得税
-            currentformance.netProfit= currentformance.totalProfit - currentformance.incomeTax;             // 五、净利润
-            currentformance.inputTax= Inventory.Bag[i].rawMaterial;              // 进项税  暂时用原料费用代替
-            currentformance.outputTax = currentformance.salesRevenue;             // 销项税  暂时用销售费用代替
+            if (child.CompareTag("PerformanceItem"))
+                Destroy(child.gameObject);
+        }
 
-            currentformance.year = currentYear;
+        // 如果是当前年份，直接显示 currentformance
+        if (year == currentYear)
+        {
+            int counter = 1;
+            for (int i = 0; i < Inventory.Bag.Count; i++)
+            {
+                GameObject A = Instantiate(performancePrefab, performanceContent.transform);
+                A.name = counter.ToString();
+                counter++;
+                Text[] texts = A.GetComponentsInChildren<Text>();
 
-            formance.UpdateFormance(currentYear, currentformance);
-            Text[] texts = performanceContent.transform.Find(counter.ToString()).GetComponentsInChildren<Text>();
-            counter++;
+                foreach (Text text in texts)
+                {
+                    switch (text.name)
+                    {
+                        case "1": text.text = currentformance.companyName; break;
+                        case "2": text.text = currentformance.revenueWithTax.ToString(); break;
+                        case "3": text.text = currentformance.vatRate.ToString(); break;
+                        case "4": text.text = currentformance.vatPayable.ToString(); break;
+                        case "5": text.text = currentformance.salesRevenue.ToString(); break;
+                        case "6": text.text = currentformance.costOfGoodsSold.ToString(); break;
+                        case "7": text.text = currentformance.landRent.ToString(); break;
+                        case "8": text.text = currentformance.grossProfit.ToString(); break;
+                        case "9": text.text = currentformance.advertisingExpense.ToString(); break;
+                        case "10": text.text = currentformance.renovationCost.ToString(); break;
+                        case "11": text.text = currentformance.managementExpense.ToString(); break;
+                        case "12": text.text = currentformance.interestExpense.ToString(); break;
+                        case "13": text.text = currentformance.operatingProfit.ToString(); break;
+                        case "14": text.text = currentformance.currentReward.ToString(); break;
+                        case "15": text.text = currentformance.penalty.ToString(); break;
+                        case "16": text.text = currentformance.totalProfit.ToString(); break;
+                        case "17": text.text = currentformance.incomeTaxRate.ToString(); break;
+                        case "18": text.text = currentformance.incomeTax.ToString(); break;
+                        case "19": text.text = currentformance.netProfit.ToString(); break;
+                        case "20": text.text = currentformance.inputTax.ToString(); break;
+                        case "21": text.text = currentformance.outputTax.ToString(); break;
+                    }
+                }
+            }
+            return;
+        }
+
+  
+        List<formance> performances = formance.formances.FindAll(f => f.year == year);
+        if (performances.Count == 0)
+        {
+            // 无数据，UI留空
+            return;
+        }
+
+        int historyCounter = 1;
+        foreach (var f in performances)
+        {
+            GameObject A = Instantiate(performancePrefab, performanceContent.transform);
+            A.name = historyCounter.ToString();
+            historyCounter++;
+            Text[] texts = A.GetComponentsInChildren<Text>();
+
             foreach (Text text in texts)
             {
                 switch (text.name)
                 {
-                    case "1":
-                        text.text = currentformance.companyName;
-                        break;
-                    case "2":
-                        text.text = currentformance.revenueWithTax.ToString();
-                        break;
-                    case "3":
-                        text.text = currentformance.vatRate.ToString();
-                        break;
-                    case "4":
-                        text.text = currentformance.vatPayable.ToString();
-                        break;
-                    case "5":
-                        text.text = currentformance.salesRevenue.ToString();    
-                        break;
-                    case "6":
-                        text.text = currentformance.costOfGoodsSold.ToString();
-                        break;
-                    case "7":
-                        text.text = currentformance.landRent.ToString();
-                        break;
-                    case "8":
-                        text.text = currentformance.grossProfit.ToString();
-                        break;
-                    case "9":
-                        text.text = currentformance.advertisingExpense.ToString();
-                        break;
-                    case "10":
-                        text.text = currentformance.renovationCost.ToString();
-                        break;
-                    case "11":
-                        text.text = currentformance.managementExpense.ToString();
-                        break;
-                    case "12":
-                        text.text = currentformance.interestExpense.ToString();
-                        break;
-                    case "13":
-                        text.text = currentformance.operatingProfit.ToString();
-                        break;
-                    case "14":
-                        text.text = currentformance.currentReward.ToString();
-                        break;
-                    case "15":
-                        text.text = currentformance.penalty.ToString();
-                        break;
-                    case "16":
-                        text.text = currentformance.totalProfit.ToString();
-                        break;
-                    case "17":
-                        text.text = currentformance.incomeTaxRate.ToString();
-                        break;
-                    case "18":
-                        text.text = currentformance.incomeTax.ToString();
-                        break;
-                    case "19":
-                        text.text = currentformance.netProfit.ToString();
-                        break;
-                    case "20":
-                        text.text = currentformance.inputTax.ToString();
-                        break;
-                    case "21":
-                        text.text = currentformance.outputTax.ToString();
-                        break;
-                    default:
-                        break;
+                    case "1": text.text = f.companyName; break;
+                    case "2": text.text = f.revenueWithTax.ToString(); break;
+                    case "3": text.text = f.vatRate.ToString(); break;
+                    case "4": text.text = f.vatPayable.ToString(); break;
+                    case "5": text.text = f.salesRevenue.ToString(); break;
+                    case "6": text.text = f.costOfGoodsSold.ToString(); break;
+                    case "7": text.text = f.landRent.ToString(); break;
+                    case "8": text.text = f.grossProfit.ToString(); break;
+                    case "9": text.text = f.advertisingExpense.ToString(); break;
+                    case "10": text.text = f.renovationCost.ToString(); break;
+                    case "11": text.text = f.managementExpense.ToString(); break;
+                    case "12": text.text = f.interestExpense.ToString(); break;
+                    case "13": text.text = f.operatingProfit.ToString(); break;
+                    case "14": text.text = f.currentReward.ToString(); break;
+                    case "15": text.text = f.penalty.ToString(); break;
+                    case "16": text.text = f.totalProfit.ToString(); break;
+                    case "17": text.text = f.incomeTaxRate.ToString(); break;
+                    case "18": text.text = f.incomeTax.ToString(); break;
+                    case "19": text.text = f.netProfit.ToString(); break;
+                    case "20": text.text = f.inputTax.ToString(); break;
+                    case "21": text.text = f.outputTax.ToString(); break;
                 }
             }
-            texts = Array.Empty<Text>();
-
         }
     }
+
+    public void performancePrevYear()
+    {
+        int targetYear = performanceYear - 1;
+        if (targetYear < 1)
+        {
+            AddMessage("已经是第一年，无法切换");
+            return;
+        }
+
+        bool hasData = false;
+        if (targetYear == currentYear)
+        {
+            hasData = hasPerformanceData;
+        }
+        else
+        {
+            hasData = formance.formances.Exists(f => f.year == targetYear);
+        }
+
+        if (!hasData)
+        {
+            AddMessage($"第 {targetYear} 年没有损益表数据，无法切换");
+            return;
+        }
+
+        performanceYear = targetYear;
+        LoadPerformanceForYear(performanceYear);
+        UIManager.Instance.performanceYear.text = performanceYear.ToString();
+    }
+
+    public void performanceNextYear()
+    {
+        int targetYear = performanceYear + 1;
+        bool hasData = false;
+        if (targetYear == currentYear)
+        {
+            hasData = hasPerformanceData;
+        }
+        else
+        {
+            hasData = formance.formances.Exists(f => f.year == targetYear);
+        }
+
+        if (!hasData)
+        {
+            AddMessage($"第 {targetYear} 年没有损益表数据，无法切换");
+            return;
+        }
+
+        performanceYear = targetYear;
+        LoadPerformanceForYear(performanceYear);
+        UIManager.Instance.performanceYear.text = performanceYear.ToString();
+    }
+
+    //--------------决策历史和消息-----------------
+    // 添加一条新消息并生成对应的气泡
+    public void AddMessage(string message)
+    {
+        HistoryMessages.Add(message);
+
+        GameObject bubble = Instantiate(messageBubblePrefab, parentTransform);
+        Text bubbleText = bubble.GetComponentInChildren<Text>();
+        bubbleText.text = message;
+        //将生成的气泡加入缓存列表
+        CurrentBox.Add(bubble);
+    }
+
 }
