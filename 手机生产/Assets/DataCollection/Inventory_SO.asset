@@ -18,7 +18,67 @@ MonoBehaviour:
     phones:
     - ID: 1
       Name: "\u5C0F\u7C7314 Pro"
-      number: 1
+      number: 0
+    - ID: 2
+      Name: "\u4E09\u661FGalaxy S23+"
+      number: 0
+    - ID: 3
+      Name: "\u771F\u6211GT Neo6"
+      number: 0
+    - ID: 4
+      Name: "\u4E00\u52A012"
+      number: 0
+    - ID: 5
+      Name: vivo X100 Pro
+      number: 0
+    - ID: 6
+      Name: vivo X90 Pro+
+      number: 0
+    - ID: 7
+      Name: iQOO 12
+      number: 0
+    - ID: 8
+      Name: iPhone 15 Pro
+      number: 0
+    - ID: 9
+      Name: "\u534E\u4E3AMate 40 Pro+"
+      number: 0
+    - ID: 10
+      Name: "\u5C0F\u7C7310 Pro"
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
+    - ID: 0
+      Name: 
+      number: 0
     Chip:
     - ID: 0
       chip_model: 
@@ -39,7 +99,7 @@ MonoBehaviour:
       transistor_count: 
       price_usd: 0
       adopted_models: 
-      number: 82
+      number: 68
     - ID: 2
       chip_model: 0
       manufacturer: 0
@@ -134,7 +194,7 @@ MonoBehaviour:
       refresh: 
       price: 0
       adopted_models: 
-      number: 985
+      number: 971
     - ID: 3
       display_model: 
       manufacturer: 
@@ -175,7 +235,7 @@ MonoBehaviour:
       capacity: 
       price: 0
       adopted_models: 
-      number: 82
+      number: 78
     - ID: 0
       memory_model: 
       manufacturer: 
@@ -272,7 +332,7 @@ MonoBehaviour:
       main_specs: 
       unit_price: 0
       adopted_models: 
-      number: 985
+      number: 971
     - ID: 0
       camera_model: 
       manufacturer: 
@@ -311,14 +371,14 @@ MonoBehaviour:
       capacity: 
       price: 0
       adopted_models: 
-      number: 82
-    - ID: 0
+      number: 68
+    - ID: 2
       battery_model: 
       manufacturer: 
       capacity: 
       price: 0
       adopted_models: 
-      number: 0
+      number: 11
     - ID: 3
       battery_model: 
       manufacturer: 
@@ -382,7 +442,7 @@ MonoBehaviour:
       material_type: 
       price: 0
       adopted_models: 
-      number: 82
+      number: 68
     - ID: 2
       part_model: 
       manufacturer: 
@@ -622,9 +682,39 @@ MonoBehaviour:
       isActive: 0
       isWon: 1
       deliveryDeadline: 33.825443
+    - orderID: 95718
+      customerName: "\u6D77\u5916\u5BA2\u6237A"
+      phoneModelID: 1
+      quantity: 14
+      maxPrice: 1828.9865
+      currentBidPrice: 666
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 33.825443
+    - orderID: 88329
+      customerName: "\u6D77\u5916\u5BA2\u6237B"
+      phoneModelID: 7
+      quantity: 13
+      maxPrice: 2008.675
+      currentBidPrice: 2000
+      daysRemaining: 0
+      isActive: 0
+      isWon: 1
+      deliveryDeadline: 59.439842
     Loans: []
     TotalLoanedAmount: 0
-    Lands: []
-    expense: 42716
-    rawMaterial: 0
+    Lands:
+    - landID: 1
+      CompanyName: "AAA\u624B\u673A\u5382"
+      TotalSupply: 1100
+      RentBidding: 1100
+      ApplyforLand: 500
+      ActualAcquisition: 500
+      RemainingLand: 600
+      IsAccept: 1
+      Time: 00:00
+      year: 1
+    expense: 46330
+    rawMaterial: 3230
     manual: 42000
