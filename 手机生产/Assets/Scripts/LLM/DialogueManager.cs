@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     {
         public string name;
         [TextArea(3, 10)] 
-        public string personalityPrompt = "你是虚拟人物伊落玛丽，是个性格活泼，聪明可爱的女生。擅长Unity和C#编程知识。不需要输出md标记语言，直接输出文本内容。";
+        public string personalityPrompt = "你是虚拟人物伊落玛丽，是个性格活泼，聪明可爱的女生。擅长Unity和C#编程知识。直接输出unity的text组件可以显示的文本内容。";
     }
 
     [SerializeField] public NPCCharacter npcCharacter;
