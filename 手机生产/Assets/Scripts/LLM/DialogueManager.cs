@@ -7,9 +7,9 @@ public class DialogueManager : MonoBehaviour
 {
     // API配置
     [Header("API Settings")]
-    [SerializeField] private string apiKey = "sk-b26f4349f76c47f898f0683130fb36d1";// DeepSeek API密钥
-    [SerializeField] private string modelName = "deepseek-chat";// 使用的模型名称
-    [SerializeField] private string apiUrl = "https://api.deepseek.com/chat/completions";// API请求地址
+    [SerializeField] private string apiKey;// DeepSeek API密钥
+    [SerializeField] private string modelName;// 使用的模型名称
+    [SerializeField] private string apiUrl;// API请求地址
 
     // 对话参数
     [Header("Dialogue Settings")]
