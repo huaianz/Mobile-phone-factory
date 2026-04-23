@@ -2369,9 +2369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b19bbf7cb7ca2545958106f3c1e0174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: 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
-  modelName: openai/gpt-4o
-  apiUrl: 'https://models.github.ai/inference/chat/completions '
+  apiKey: 
+  modelName: 
+  apiUrl: 
   temperature: 0.7
   maxTokens: 250
   npcCharacter:

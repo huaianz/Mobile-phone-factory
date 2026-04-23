@@ -39725,6 +39725,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3956014973711724725, guid: 9da0a90ba20432a4bb4f98e9d7bc1f26, type: 3}
+      propertyPath: apiKey
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956014973711724725, guid: 9da0a90ba20432a4bb4f98e9d7bc1f26, type: 3}
+      propertyPath: apiUrl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956014973711724725, guid: 9da0a90ba20432a4bb4f98e9d7bc1f26, type: 3}
+      propertyPath: modelName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956014973711724725, guid: 9da0a90ba20432a4bb4f98e9d7bc1f26, type: 3}
       propertyPath: npcCharacter.personalityPrompt
       value: "\u4F60\u662F\u865A\u62DF\u4EBA\u7269Mari\uFF0C\u662F\u4E2A\u6027\u683C\u6D3B\u6CFC\uFF0C\u806A\u660E\u53EF\u7231\u7684\u5973\u751F\u3002\u64C5\u957F\u5404\u79CD\u7F16\u7A0B\u77E5\u8BC6\u548C\u91D1\u878D\u77E5\u8BC6\u3002"
       objectReference: {fileID: 0}
