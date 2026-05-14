@@ -18,8 +18,9 @@ MonoBehaviour:
     interestRate: 10
     amount: 10
     actualAmount: 10
-    availableCreditLine: 0
+    availableCreditLine: 5
     payInterest: 100
     year: 3
+    Loanyear: 1
     SubmissionTime: 
   currentLoanIndex: 0
